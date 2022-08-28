@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.spooky {
+    background-color: #2d2d2d;
+    background-image: url("data:image/svg+xml,%3Csvg width='104' height='52' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d96f1a' fill-opacity='0.2'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.glowyimg {
+    -webkit-filter: drop-shadow(1px 1px 0 #a16207) drop-shadow(-1px -1px 0 #a16207);
+    filter: drop-shadow(1px 1px 0 #a16207) drop-shadow(-1px -1px 0 #a16207);
+}
+
+ol {
+
+    @apply list-decimal
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply mb-2 font-semibold text-gray-100;
+}
+
+h2, h3, h4, h5, h6 {
+    @apply mb-4 mt-8;
+}
+
+ol {
+    @apply my-4 ml-6 sm:ml-12 space-y-3;
+}
+
+h1 {
+    @apply text-3xl sm:text-5xl;
+}
+
+h2 {
+    @apply text-2xl sm:text-4xl;
+}
+
+h3 {
+    @apply text-xl sm:text-3xl;
+}
+
+h4 {
+    @apply text-lg sm:text-2xl;
+}
+
+h5 {
+    @apply text-base sm:text-xl;
+}
+
+h6 {
+    @apply text-sm sm:text-lg;
+}
+
+.pixelated {
+    image-rendering: pixelated;
+}

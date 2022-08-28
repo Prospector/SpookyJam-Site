@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = (await Astro.glob('./updates/*.{md,mdx}')).sort(
+	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+<Layout title = "SpookyJam Updates" description = "Updates about the SpookyJam modding event!">
+	<content>
+
+		{posts.map((post) => (
+			<h2><a href={post.url}>{post.frontmatter.title}</a></h2>
+			<time datetime={post.frontmatter.pubDate}>
+					{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+						year: 'numeric',
+						month: 'short',
+						day: 'numeric',
+					})}
+			</time>
+			<br>
+			<p>{post.frontmatter.description} <a href={post.url}>Read more here!</a></p>
+		))}
+	</content>
+</Layout>

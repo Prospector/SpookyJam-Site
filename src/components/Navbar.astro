@@ -1,0 +1,13 @@
+---
+import HeaderLink from './NavLink.astro';
+import { DISCORD, TWITTER, GITHUB} from '../config';
+---
+<nav>
+	<HeaderLink href="/">Home</HeaderLink>
+	<HeaderLink href="/updates">Updates</HeaderLink>
+	<HeaderLink href="/events">Past Events</HeaderLink>
+
+	<HeaderLink href={DISCORD} target="_blank">Discord</HeaderLink>
+	<HeaderLink href={GITHUB} target="_blank">GitHub</HeaderLink>
+	<HeaderLink href={TWITTER} target="_blank">Twitter</HeaderLink>
+</nav>
