@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "SpookyJam 2018"
-description: "Announcing SpookyJam 2018!"
+description: "We're back from the dead! Join is in celebrating the fall season with our second annual SpookyJam!"
 pubDate: "Sep 22 2018"
 heroImage: "/spookyjam-2018.png"
 ---

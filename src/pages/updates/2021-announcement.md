@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "SpookyJam 2021"
-description: "Announcing SpookyJam 2021!"
+description: "It's time to get spooky! Join our community in October for the fifth annual SpookyJam event!"
 pubDate: "Sep 29 2021"
 heroImage: "/spookyjam-2021.png"
 ---

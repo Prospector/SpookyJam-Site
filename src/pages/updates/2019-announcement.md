@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "SpookyJam 2019"
-description: "Announcing SpookyJam 2019!"
+description: "It's spooky time once again! Join us in October for the third annual SpookyJam!"
 pubDate: "Sep 28 2019"
 heroImage: "/spookyjam-2019.png"
 ---
