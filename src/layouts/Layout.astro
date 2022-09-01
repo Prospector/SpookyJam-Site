@@ -8,7 +8,7 @@ export interface Props {
 	description: string;
 }
 
-const {title, description} = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html>
@@ -20,14 +20,14 @@ const {title, description} = Astro.props;
 		<Navbar />
 	</header>
 
-	<body>
-		<main class = 'flex-grow flex justify-center bg-[#1F1F1F] spooky h-screen'>
-            <div class = 'w-[96%] xl:w-4/6 mt-2 xl:mt-12'>
-                <div class = 'xl:p-8 p-4 bg-gray-800 text-gray-200 text-lg xl:text-xl rounded-2xl'>
-                    <h1 class="title">{title}</h1>
-                    <slot/>
-                </div>
-            </div>
-		</main>
-	</body>
+	<main class="flex-grow flex justify-center bg-[#1F1F1F] spooky h-screen">
+		<div class="w-[96%] xl:w-4/6 mt-2 xl:mt-12">
+			<div
+				class="xl:p-8 p-4 bg-gray-800 text-gray-200 text-lg xl:text-xl rounded-2xl"
+			>
+				<h1 class="title">{title}</h1>
+				<slot />
+			</div>
+		</div>
+	</main>
 </html>
