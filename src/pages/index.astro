@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { DISCORD } from "../config";
+import Countdown from 'react-countdown';
 ---
 
 <Layout
@@ -17,6 +18,8 @@ import { DISCORD } from "../config";
 		can join out and check out the submissions with their friends and the
 		modded Minecraft community.
 	</p>
-	<br />
+	<br>
+	<Countdown client:visible date={Date.UTC(2022, 9, 1, 0, 0, 0)} />
+	<br>
 	<p>For more information join our <a href={DISCORD}>Discord</a>.</p>
 </Layout>

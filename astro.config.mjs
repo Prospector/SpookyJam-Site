@@ -8,5 +8,5 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://mycelium-mod-network.github.io',
-  integrations: [mdx(), sitemap(), tailwind()]
+  integrations: [react(), mdx(), sitemap(), tailwind()]
 });
