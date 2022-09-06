@@ -1,0 +1,39 @@
+{
+    "__comment_1": "Due to a bug in Astro/Vert using the Glob function to fetch posts will cause their styles to bleed into the page.",
+    "__comment_2": "This issue leads to a number of styling errors with no apparent cause. The current work around involves recrating",
+    "__comment_3": "a the MD pages from scratch using a dynamic route. This work around is not optimal, and given the small number of",
+    "__comment_4": "pages, I have decided to extract their page metadata and hardcode their values here for now.",
+
+    "announcements": [
+        {
+            "title": "SpookyJam 2017",
+            "description": "We are happy to announce the first ever SpookyJam event! Join us and the rest of the Minecraft modding community in celebrating the fall season! During SpookyJam mod developers come together to create mods that incorporate dark, mysterious, and spooky themes.",
+            "pubDate": "Sep 02 2017",
+            "url": "/announcements/2017"
+        },
+        {
+            "title": "SpookyJam 2018",
+            "description": "We're back from the dead and hungry for more mods! Join us in celebrating the fall season with our second annual SpookyJam! We are challenging the community to come together and create mods that are dark, mysterious, and spooky!",
+            "pubDate": "Sep 22 2018",
+            "url": "/announcements/2018"
+        },
+        {
+            "title": "SpookyJam 2019",
+            "description": "It's spooky time once again! We welcome everyone to join us for the third annual SpookyJam event! During SpookyJam we encourage mod developers to team up and create mods that encapsulate the fall season!",
+            "pubDate": "Sep 28 2019",
+            "url": "/announcements/2019"
+        },
+        {
+            "title": "SpookyJam 2020",
+            "description": "Get your pumpkin spice ready because it's time for SpookyJam! We invite the modded Minecraft community to join us for the fourth annual SpookyJam! You can participate by developing new mods that represent aspects of the fall season!",
+            "pubDate": "Sep 28 2020",
+            "url": "/announcements/2020"
+        },
+        {
+            "title": "SpookyJam 2021",
+            "description": "Is that a chill in the air? It must be time for SpookyJam! Join our community in October for the fifth annual SpookyJam event! Create mods that fit with the fall seasonal vibe and you could win awesome prizes!",
+            "pubDate": "Sep 29 2021",
+            "url": "/announcements/2021"
+        }
+    ]
+}
