@@ -1,14 +1,50 @@
 ---
 import HeaderLink from "./NavLink.astro";
 import { DISCORD, TWITTER, GITHUB } from "../config";
+
+const navbarImage = "data:image/webp;base64,UklGRgwCAABXRUJQVlA4TP8BAAAvp0AEEC+gqG0jpvxh9V8O4wYmwmyj+cuNYgb3P4Jsm/ljzOAoBznCk/kPAD2JvPpmPUCOJMmNMxAGAA/8T/4Fuf8TuwZAtP++TPfsgbQgov8Q3EiSpATHqFZsyQW8woax8cnMxpGTO/g+MxNCQ4+wBuUMajMbbWhMXx/NBFu5Ycbkk9kAjEBjM4BGImGiB5MimrhpQOPTPJnJ64oLNwQqwg1US5M+BaTvC+t0k9cevKvZ4i2Crd4w4wSfpgHXxScKT4s+nCSg00lOJCdsOrB28fT1AY6t3TBf6VkmnhyvPvAhTgWJVjhh055ac3K4YU9yQaUDNaqNh9nCFpkO2NeiXf3k+tUS4cbW60GqbTo57cC/RmtBpWSZluQJp/NuXor58e3+IAD4U/v5+UEbbtjbKtnKTzpBlqPDJiYAILFEB760Ju2G7lu3FcnE2X7vZ010pe5ra9rXypKFT1KAZDcp1Tat+n6TZKi1aukmBeQWsifKzZ2d15OjmwJSiycqWaY/9aS7CPqPbf9RsSfUWOoJp7Kp11yW3banrWhP9FLe0EnImUOv/3vkhE0hip/IiMkNrHj623xy6jYAJfwQIJqIKHEThTHaeK9D4g2bVp6h3qNeHsEdEX3YpPXhr0KbWuIN2RU+5Wc249Q/c87x3Tn3pERE3ESLcJ58nXK1hBsyAA=="
+
+const navlinks = [
+	{
+		title: "Home",
+		url: "/",
+		newTab: false
+	},
+	{
+		title: "Announcements",
+		url: "/announcements",
+		newTab: false
+	},
+	{
+		title: "Discord",
+		url: DISCORD,
+		newTab: true
+	},
+	{
+		title: "GitHub",
+		url: GITHUB,
+		newTab: true
+	},
+	{
+		title: "Twitter",
+		url: TWITTER,
+		newTab: true
+	},
+]
 ---
 
-<nav>
-	<HeaderLink href="/">Home</HeaderLink>
-	<HeaderLink href="/updates">Updates</HeaderLink>
-	<HeaderLink href="/events">Past Events</HeaderLink>
+<nav class = 'bg-gray-900 bg-opacity-75 text-white w-full'>
+	
+	<!-- Non-Mobile Navbar -->
+	<div class='hidden lg:grid sm:grid-colls-3 w-full px-4 pt-1 pb-4'>
+		<div class='flex px-4 gap-x-4 text-xl font-bold'>
+			{navlinks.map((link) => (
+				<HeaderLink class = 'my-auto' href={link.url}>{link.title}</HeaderLink>
+			))}
+		</div>
+	</div>
 
-	<HeaderLink href={DISCORD} target="_blank">Discord</HeaderLink>
-	<HeaderLink href={GITHUB} target="_blank">GitHub</HeaderLink>
-	<HeaderLink href={TWITTER} target="_blank">Twitter</HeaderLink>
+	<div class='lg:hidden'>
+		<!-- TODO how to make a clickable button here -->
+	</div>
 </nav>

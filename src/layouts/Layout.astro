@@ -1,7 +1,6 @@
 ---
 import SEO from "../components/SEO.astro";
 import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
 
 export interface Props {
 	title: string;
@@ -11,7 +10,7 @@ export interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html>
+<html class = "bg-[#1F1F1F] spooky">
 	<head>
 		<SEO title={title} description={description} />
 	</head>
@@ -20,11 +19,9 @@ const { title, description } = Astro.props;
 		<Navbar />
 	</header>
 
-	<main class="flex-grow flex justify-center bg-[#1F1F1F] spooky h-screen">
+	<main class="flex-grow flex justify-center">
 		<div class="w-[96%] xl:w-4/6 mt-2 xl:mt-12">
-			<div
-				class="xl:p-8 p-4 bg-gray-800 text-gray-200 text-lg xl:text-xl rounded-2xl"
-			>
+			<div class="xl:p-8 p-4 bg-gray-800 text-gray-200 text-lg xl:text-xl rounded-2xl">
 				<h1 class="title">{title}</h1>
 				<slot />
 			</div>
