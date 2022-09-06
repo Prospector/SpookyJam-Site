@@ -39,7 +39,7 @@ const navlinks = [
 	<div class='hidden lg:grid sm:grid-colls-3 w-full px-4 pt-1 pb-4'>
 		<div class='flex px-4 gap-x-4 text-xl font-bold'>
 			{navlinks.map((link) => (
-				<HeaderLink class = 'my-auto' href={link.url}>{link.title}</HeaderLink>
+				<HeaderLink class = 'my-auto' href={link.url} target={link.newTab ? '_blank' : undefined}>{link.title}</HeaderLink>
 			))}
 		</div>
 	</div>
