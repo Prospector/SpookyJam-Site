@@ -29,7 +29,11 @@ h2, h3, h4, h5, h6 {
 }
 
 ol {
-    @apply my-4 ml-6 sm:ml-12 space-y-3;
+    @apply my-4 ml-6 sm:ml-12 space-y-3 list-decimal;
+}
+
+ul {
+    @apply my-4 ml-6 sm:ml-12 space-y-3 list-disc;
 }
 
 h1 {
@@ -58,4 +62,12 @@ h6 {
 
 .pixelated {
     image-rendering: pixelated;
+}
+
+details > summary {
+    list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
 }
