@@ -1,0 +1,62 @@
+---
+import type { ProjectData } from "../util/curseforge.js";
+import Layout from "../layouts/main.astro";
+import { fetchMods } from "../util/curseforge.js";
+import { SUBMISSIONS } from "../config.js";
+import SubmissionBox from "../components/SubmissionBox.astro";
+import InfoBox from "../components/InfoBox.astro";
+
+const submissionIds = [] as number[];
+submissionIds.push(...(SUBMISSIONS.get("2017") ?? []));
+submissionIds.push(...(SUBMISSIONS.get("2018") ?? []));
+submissionIds.push(...(SUBMISSIONS.get("2019") ?? []));
+submissionIds.push(...(SUBMISSIONS.get("2020") ?? []));
+submissionIds.push(...(SUBMISSIONS.get("2021") ?? []));
+submissionIds.push(...(SUBMISSIONS.get("2022") ?? []));
+
+const submissions = await fetchMods(
+    submissionIds,
+    import.meta.env.CURSEFORGE_API_KEY
+);
+submissions.sort(
+    (a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf()
+);
+const allAuthors = new Set();
+submissions.forEach((project) =>
+    project.authors.forEach((author) => allAuthors.add(author.name))
+);
+const sum = submissions.reduce(
+    (downloads, project) => downloads + project.downloads,
+    0
+);
+---
+
+<Layout
+    title="Submissions"
+    description="A list of all projects that have participated in SpookyJam!"
+>
+    <p>
+        Over the years we have received many submissions from a wide range of
+        talented community members! So far we have received exactly {
+            submissions.length
+        } mod submissions from {allAuthors.size} different authors! SpookyJam mods
+        have cumulatively been downloaded {sum.toLocaleString("en-US")} times on
+        CurseForge! Below you will find a complete list of every project submitted
+        to SpookyJam so far!
+    </p>
+
+    <h2 id="2021">2021</h2>
+    <SubmissionBox year="2021" />
+
+    <h2 id="2020">2020</h2>
+    <SubmissionBox year="2020" />
+
+    <h2 id="2019">2019</h2>
+    <SubmissionBox year="2019" />
+
+    <h2 id="2018">2018</h2>
+    <SubmissionBox year="2018" />
+
+    <h2 id="2017">2017</h2>
+    <SubmissionBox year="2017" />
+</Layout>
