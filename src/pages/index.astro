@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/main.astro";
 import { DISCORD } from "../config";
 import Countdown from 'react-countdown';
 ---
@@ -19,7 +19,7 @@ import Countdown from 'react-countdown';
 		modded Minecraft community.
 	</p>
 	<br>
-	<Countdown client:visible date={Date.UTC(2022, 9, 1, 0, 0, 0)} />
+	<Countdown client:only = 'react' date={Date.UTC(2022, 9, 1, 0, 0, 0)} />
 	<br>
 	<p>For more information join our <a href={DISCORD}>Discord</a>.</p>
 </Layout>

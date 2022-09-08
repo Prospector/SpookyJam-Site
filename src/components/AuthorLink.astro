@@ -1,0 +1,16 @@
+---
+import type { Author } from '../util/curseforge.js';
+
+export interface Props {
+	author: Author,
+    isLast: boolean
+}
+
+const { author, isLast, ...props } = Astro.props as Props;
+
+function truncate(str: string, max = 100): string {
+    return str.length > max ? `${str.substring(0, max)}...` : str;
+}
+---
+<a class= 'font-bold text-base sm:text-xl' href={author.profile}>{author.name}</a>
+{!isLast ? ', ' : ''}
