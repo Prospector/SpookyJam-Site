@@ -51,7 +51,7 @@ export async function fetchMods(projectIds: number[], apiKey: string): Promise<P
         // Convert to JSON
         .then(response => {
 
-            if (!response.ok) {
+            if (!response.ok || response.status != 200) {
                 console.log(`Failed to get data from CurseForge for projects ${projectIds}. Trying again.`);
                 return fetchMods(projectIds, apiKey);
             }
