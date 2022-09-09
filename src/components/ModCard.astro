@@ -1,9 +1,9 @@
 ---
-import type { ProjectData, Author } from '../util/curseforge.js';
-import AuthorLink from './AuthorLink.astro';
+import type { ProjectData, Author } from "../util/curseforge.js";
+import AuthorLink from "./AuthorLink.astro";
 
 export interface Props {
-	project: ProjectData
+    project: ProjectData;
 }
 
 const { project, ...props } = Astro.props as Props;
@@ -12,18 +12,42 @@ function truncate(str: string, max = 100): string {
     return str.length > max ? `${str.substring(0, max)}...` : str;
 }
 ---
-<div class='flex gap-x-4 p-2 border-2 border-yellow-700 bg-yellow-900 bg-opacity-25'>
 
-    <div class = 'flex-none w-32 h-32 my-auto'>
-        <img src={project.logo} width={128} height={128} class='bg-[#1F1F1F] border border-yellow-700' alt={project.name}/>
+<div
+    class="flex gap-x-4 p-2 border-2 border-yellow-700 bg-yellow-900 bg-opacity-25"
+>
+    <div class="flex-none w-32 h-32 my-auto">
+        <a href={project.url} target="_blank"
+            ><img
+                src={project.logo}
+                width={128}
+                height={128}
+                class="bg-[#1F1F1F] border border-yellow-700"
+                alt={project.name}
+            />
+        </a>
     </div>
 
-    <div class='flex-grow'>
-        <a class= 'text-xl sm:text-2xl lg:text-3xl font-medium' href={project.url} target={"_blank"}>{truncate(project.name, 25)}</a>
-        <p class= 'text-lg lg:text-xl'>By: {project.authors.map((author, index: number) => (
-            <AuthorLink author={author} isLast = {index == project.authors.length - 1}/>
-        ))}</p>
-        
-        <p class= 'text-sm sm:text-base lg:text-lg'>{truncate(project.summary)}</p>
+    <div class="flex-grow">
+        <a
+            class="text-xl sm:text-2xl lg:text-3xl font-medium"
+            href={project.url}
+            target={"_blank"}
+            >{truncate(project.name, 25)}
+        </a>
+        <p class="text-lg lg:text-xl">
+            By: {
+                project.authors.map((author, index: number) => (
+                    <AuthorLink
+                        author={author}
+                        isLast={index == project.authors.length - 1}
+                    />
+                ))
+            }
+        </p>
+
+        <p class="text-sm sm:text-base lg:text-lg">
+            {truncate(project.summary)}
+        </p>
     </div>
 </div>
