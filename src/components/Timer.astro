@@ -1,0 +1,55 @@
+---
+export interface Props {
+    date: number,
+    refreshRate?: number
+}
+
+interface RenderProps {
+
+    days: number,
+    hours: number,
+    minutes: number,
+    seconds: number,
+    completed: boolean
+}
+
+const { date, refreshRate = 1000} = Astro.props;
+---
+
+<!-- Some way to define a custom renderer elsewhere. -->
+<!-- RenderProps => ReactNode? -->
+<div>
+    <p class="days">0</p>
+    <p class="hours">0</p>
+    <p class="minutes">0</p>
+    <p class="seconds">0</p>
+</div>
+
+<script is:inline define:vars={{ date: date, refreshRate: refreshRate }}>
+
+    const updateCountdown = () => {
+
+        const total = date - new Date().getTime();
+
+        const seconds = Math.floor( (total/1000) % 60 );
+        const minutes = Math.floor( (total/1000/60) % 60 );
+        const hours = Math.floor( (total/(1000*60*60)) % 24 );
+        const days = Math.floor( total/(1000*60*60*24) );
+
+        // Could I do this better?
+        document.querySelector(".days").innerText = days;
+        document.querySelector(".hours").innerText = hours;
+        document.querySelector(".minutes").innerText = minutes;
+        document.querySelector(".seconds").innerText = seconds;
+
+        // Stop updating if the timer hits 0.
+        if (total <= 0) {
+
+            clearInterval(updateCountdown);
+        }
+    };
+
+    // Invoke immediately.
+    updateCountdown();
+    setInterval(updateCountdown, refreshRate);
+</script>
