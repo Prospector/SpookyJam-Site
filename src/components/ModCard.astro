@@ -1,5 +1,6 @@
 ---
 import type { ProjectData, Author } from "../util/curseforge.js";
+import { Image, Picture } from '@astrojs/image/components';
 import AuthorLink from "./AuthorLink.astro";
 
 export interface Props {
@@ -18,12 +19,14 @@ function truncate(str: string, max = 100): string {
 >
     <div class="flex-none w-32 h-32 my-auto">
         <a href={project.url} target="_blank"
-            ><img
+            ><Image
                 src={project.logo}
                 width={128}
                 height={128}
                 class="bg-[#1F1F1F] border border-yellow-700"
                 alt={project.name}
+                format='webp'
+                aspectRatio='1:1'
             />
         </a>
     </div>
