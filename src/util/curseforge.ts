@@ -53,7 +53,7 @@ export async function fetchMods(projectIds: number[], apiKey: string): Promise<P
 
             if (!response.ok || response.status != 200) {
                 console.log(`Failed to get data from CurseForge for projects ${projectIds}. Trying again.`);
-                return fetchMods(projectIds, apiKey);
+                throw new Error(`Failed to get data from CurseForge for projects ${projectIds}. Trying again.`);
             }
 
             return response.json();
@@ -69,6 +69,9 @@ export async function fetchMods(projectIds: number[], apiKey: string): Promise<P
         .then(rawData => {
 
             return rawData.data.map(entry => mapToProjectData(entry)) as ProjectData[];
+        }).catch(error => {
+            
+            return fetchMods(projectIds, apiKey);
         });
 }
 
