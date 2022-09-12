@@ -1,104 +1,75 @@
 ---
 import HeaderLink from "./NavLink.astro";
 import { DISCORD, TWITTER, GITHUB } from "../config";
-
-const navbarImage =
-	"data:image/webp;base64,UklGRgwCAABXRUJQVlA4TP8BAAAvp0AEEC+gqG0jpvxh9V8O4wYmwmyj+cuNYgb3P4Jsm/ljzOAoBznCk/kPAD2JvPpmPUCOJMmNMxAGAA/8T/4Fuf8TuwZAtP++TPfsgbQgov8Q3EiSpATHqFZsyQW8woax8cnMxpGTO/g+MxNCQ4+wBuUMajMbbWhMXx/NBFu5Ycbkk9kAjEBjM4BGImGiB5MimrhpQOPTPJnJ64oLNwQqwg1US5M+BaTvC+t0k9cevKvZ4i2Crd4w4wSfpgHXxScKT4s+nCSg00lOJCdsOrB28fT1AY6t3TBf6VkmnhyvPvAhTgWJVjhh055ac3K4YU9yQaUDNaqNh9nCFpkO2NeiXf3k+tUS4cbW60GqbTo57cC/RmtBpWSZluQJp/NuXor58e3+IAD4U/v5+UEbbtjbKtnKTzpBlqPDJiYAILFEB760Ju2G7lu3FcnE2X7vZ010pe5ra9rXypKFT1KAZDcp1Tat+n6TZKi1aukmBeQWsifKzZ2d15OjmwJSiycqWaY/9aS7CPqPbf9RsSfUWOoJp7Kp11yW3banrWhP9FLe0EnImUOv/3vkhE0hip/IiMkNrHj623xy6jYAJfwQIJqIKHEThTHaeK9D4g2bVp6h3qNeHsEdEX3YpPXhr0KbWuIN2RU+5Wc249Q/c87x3Tn3pERE3ESLcJ58nXK1hBsyAA==";
-
 const navlinks = [
 	{
 		title: "Home",
 		url: "/",
-		newTab: false,
+		newTab: false
 	},
 	{
 		title: "Events",
 		url: "/events",
-		newTab: false,
+		newTab: false
 	},
 	{
 		title: "Submissions",
 		url: "/submissions_list",
-		newTab: false,
+		newTab: false
 	},
 	{
 		title: "Discord",
 		url: DISCORD,
-		newTab: true,
+		newTab: true
 	},
 	{
 		title: "GitHub",
 		url: GITHUB,
-		newTab: true,
+		newTab: true
 	},
 	{
 		title: "Twitter",
 		url: TWITTER,
-		newTab: true,
+		newTab: true
 	},
-];
+]
 ---
 
-<nav class="bg-gray-900 bg-opacity-75 text-white w-full">
+<nav class = 'bg-gray-900 bg-opacity-75 text-white w-full'>
+
+	
 	<!-- Non-Mobile Navbar -->
-	<div class="hidden lg:grid sm:grid-colls-3 w-full px-4 pt-1 pb-4">
-		<div class="flex px-4 gap-x-4 text-xl font-bold">
-			{
-				navlinks.map((link) => (
-					<HeaderLink
-						class="my-auto"
-						href={link.url}
-						target={link.newTab ? "_blank" : undefined}
-					>
-						{link.title}
-					</HeaderLink>
-				))
-			}
+	<div class='hidden lg:grid sm:grid-colls-3 w-full px-4 pt-1 pb-4'>
+		<div class='flex px-4 gap-x-4 text-xl font-bold'>
+			{navlinks.map((link) => (
+				<HeaderLink class = 'my-auto' href={link.url} target={link.newTab ? '_blank' : undefined}>{link.title}</HeaderLink>
+			))}
 		</div>
 	</div>
 
-	<div class="lg:hidden">
-		<div class="flex justify-between p-3 px-4">
-			<svg
-				id="hamburger"
-				class="hamburger w-9 h-9 text-yellow-700 border-2 rounded-lg border-yellow-700"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M4 6h16M4 12h16M4 18h16"></path>
+	<!-- Mobile Navbar -->
+	<div class='lg:hidden'>
+		
+		<div class='flex justify-end p-3 px-4'>
+			<svg id = 'hamburger' class="hamburger w-9 h-9 text-yellow-700 border-2 rounded-lg border-yellow-700" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
 			</svg>
 		</div>
 
-		<div class="sidebar hidden">
-			{
-				navlinks.map((link) => (
-					<HeaderLink
-						class="my-auto"
-						href={link.url}
-						target={link.newTab ? "_blank" : undefined}
-					>
-						{link.title}
-					</HeaderLink>
-				))
-			}
+		<div class='sidebar hidden bg-gray-800'>
+			<div class = 'grid grid-cols-2 font-bold text-center text-xl'>
+				{navlinks.map((link) => (
+					<HeaderLink class = 'my-auto block' href={link.url} target={link.newTab ? '_blank' : undefined}>{link.title}</HeaderLink>
+				))}
+			</div>
 		</div>
 	</div>
 </nav>
 
 <script>
-	document
-		.getElementsByClassName("hamburger")
-		.item(0)
-		?.addEventListener("click", () => {
-			var sidebar = document
-				.getElementsByClassName("sidebar")
-				.item(0) as HTMLElement;
-			sidebar.style.display =
-				sidebar.style.display === "block" ? "none" : "block";
-		});
+    document.getElementsByClassName('hamburger').item(0)?.addEventListener('click', () => {
+
+        var sidebar = document.getElementsByClassName('sidebar').item(0) as HTMLElement;
+        sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block'
+    });
 </script>
