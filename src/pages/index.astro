@@ -1,29 +1,39 @@
 ---
 import Layout from "../layouts/main.astro";
 import { DISCORD } from "../config";
-import Timer from '../components/Timer.astro'
-
-// Date.UTC(2022, 9, 1, 0, 0, 0)
+import Timer from "../components/Timer.astro";
 ---
 
 <Layout
 	title="SpookyJam"
 	description="The official home of the annual SpookyJam mod jam!"
 >
-	<h2>Introduction</h2>
 	<p>
-		SpookyJam is an annual Minecraft mod jam that takes place every fall.
-		During the month of October the modding community is encouraged to make
-		mods that fit with the seasonal vibes. Participants of SpookyJam are
-		encouraged to collaborate, learn new skills, and challenge themselves.
-		During this event we also host a public Minecraft server where anyone
-		can join out and check out the submissions with their friends and the
-		modded Minecraft community.
+		SpookyJam is an annual Minecraft mod jam that takes place each fall.
+		During the month of October the Minecraft modding community is
+		encouraged to make mods that fit with the fall season. We encourage
+		participants to collaborate, learn new skills, and challenge themselves.
+		During this event we also host a public Minecraft server where everyone
+		can join and test out all of the submissions with their friends and the
+		rest of the community.
 	</p>
-	
-	<Timer date={new Date().getTime() + 10000}>
-		<p>SpookyJam has officially started!</p>
-	</Timer>
 
-	<p>For more information join our <a href={DISCORD}>Discord</a>.</p>
+	<h2>SpookyJam 2022</h2>
+	<p>
+		The next SpookyJam will begin on October 1st 2022! We look forward to
+		celebrating with the community and hope to see you there. You can learn
+		more about this event <a href="/events/2022">here</a>. We also recommend
+		joining the <a href={DISCORD}>Discord</a> server to keep up with the latest
+		news and conversation surrounding the event.3
+	</p>
+
+	<h3>2022 Countdown</h3>
+	<Timer date={Date.UTC(2022, 9, 1, 0, 0, 0)}>
+		<p>
+			SpookyJam 2022 has officially started! You may now start working on
+			your entries. The submission window will close at the end of the
+			month, however we recommend submitting your entry as soon as
+			possible so players have time to enjoy your mod.
+		</p>
+	</Timer>
 </Layout>
