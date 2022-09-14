@@ -17,7 +17,7 @@ const { date, refreshRate = 1000} = Astro.props;
 ---
 
 <div>
-    <div class="countdown inline-flex justify-center text-center px-4 gap-x-4 sm:gap-x-8">
+    <div class="countdown inline-flex justify-center text-center pr-4 gap-x-4 sm:gap-x-8">
 
         <div class="my-auto">
             <p class="text-2xl lg:text-5xl days">0</p>
@@ -40,7 +40,9 @@ const { date, refreshRate = 1000} = Astro.props;
         </div>
     </div>
 
-    <slot class='completed'/>
+    <div class='hidden completed'>
+        <slot/>
+    </div>
 </div>
 
 <script is:inline define:vars={{ date: date, refreshRate: refreshRate }}>
