@@ -2,6 +2,8 @@
 import Layout from "../layouts/main.astro";
 import { DISCORD } from "../config";
 import Timer from '../components/Timer.astro'
+
+// Date.UTC(2022, 9, 1, 0, 0, 0)
 ---
 
 <Layout
@@ -18,8 +20,9 @@ import Timer from '../components/Timer.astro'
 		can join out and check out the submissions with their friends and the
 		modded Minecraft community.
 	</p>
-	<br>
-	<Timer date={Date.UTC(2022, 9, 1, 0, 0, 0)} />
-	<br>
+	<Timer date={new Date().getTime() + 10000}>
+		<p>SpookyJam has officially started!</p>
+	</Timer>
+
 	<p>For more information join our <a href={DISCORD}>Discord</a>.</p>
 </Layout>

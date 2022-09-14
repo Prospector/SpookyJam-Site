@@ -16,13 +16,31 @@ interface RenderProps {
 const { date, refreshRate = 1000} = Astro.props;
 ---
 
-<!-- Some way to define a custom renderer elsewhere. -->
-<!-- RenderProps => ReactNode? -->
 <div>
-    <p class="days">0</p>
-    <p class="hours">0</p>
-    <p class="minutes">0</p>
-    <p class="seconds">0</p>
+    <div class="countdown inline-flex justify-center text-center px-4 gap-x-4 sm:gap-x-8">
+
+        <div class="my-auto">
+            <p class="text-2xl lg:text-5xl days">0</p>
+            <p class='font-bold'>Days</p>
+        </div>
+    
+        <div class="my-auto">
+            <p class="text-2xl lg:text-5xl hours">0</p>
+            <p class='font-bold'>Hours</p>
+        </div>
+    
+        <div class="my-auto">
+            <p class="text-2xl lg:text-5xl minutes">0</p>
+            <p class='font-bold'>Minutes</p>
+        </div>
+    
+        <div class="my-auto">
+            <p class="text-2xl lg:text-5xl seconds">0</p>
+            <p class='font-bold'>Seconds</p>
+        </div>
+    </div>
+
+    <slot class='completed'/>
 </div>
 
 <script is:inline define:vars={{ date: date, refreshRate: refreshRate }}>
@@ -46,6 +64,9 @@ const { date, refreshRate = 1000} = Astro.props;
         if (total <= 0) {
 
             clearInterval(updateCountdown);
+
+            document.querySelector(".countdown").style.display = 'none'
+            document.querySelector(".completed").style.display = 'block'
         }
     };
 
