@@ -1,0 +1,286 @@
+---
+import Layout from "../../layouts/main.astro";
+import SubmissionBox from "../../components/SubmissionBox.astro";
+import InfoBox from "../../components/InfoBox.astro";
+import Sponsor from "../../components/Sponsor.astro";
+import Timer from "../../components/Timer.astro";
+import { DISCORD } from "../../config";
+---
+
+<Layout
+    title="SpookyJam 2022"
+    description="Official information about sixth annual SpookyJam event!"
+>
+    <h2>Announcement</h2>
+    <p>Hello everyone o/</p>
+
+    <p>
+        We are happy to announce the sixth annual SpookyJam! During October we
+        celebrate the fall season and the modded Minecraft community by hosting
+        a mod jam. During the jam articipants create new mods that fit with the
+        fall season and are encouraged to collaborate, learn new skills, and
+        challenge themselves. Most importantly we hope that everyone will have
+        fun. In addtion to the mod jam we also host public servers where anyone
+        can join and test out submissions with the community.
+    </p>
+
+    <h2>Countdown</h2>
+    <Timer date={Date.UTC(2022, 9, 1, 0, 0, 0)}>
+        <p>
+            SpookyJam 2022 has officially started! You may now begin working on
+            your submission!
+        </p>
+    </Timer>
+
+    <h2>Rules</h2>
+    <p>
+        We have put the following rules in place to ensure a safe and fair
+        experience for all participants. Violating these rules may result in
+        your project being disqualified. If you have any questions about the
+        rules please reach out on <a href={DISCORD} target="_blank">Discord</a>.
+    </p>
+
+    <ol>
+        <li>
+            Submissions must only be developed from October 1st to October 31st
+            UTC. Coming up with ideas in advance is fine but all code, textures,
+            sounds, models, animations, and assets must be made during this
+            timeframe.
+        </li>
+
+        <li>
+            Submissions must fit within the broader themes of SpookyJam. These
+            themes include anything that is spooky, dark, or mysterious.
+            Anything that fits with the fall/autumn season or fits within a
+            seasonally relevant custom or tradition is also allowed.
+        </li>
+
+        <li>
+            Submissions must load on a client and dedicated server without
+            crashing the game. Targeting only one of these environments is fine
+            as long as loading in an unsupported environment does not crash the
+            game or cause the game to be unplayable.
+        </li>
+
+        <li>
+            Submissions must be compatible with Minecraft 1.19.2 and run on
+            Forge, Fabric, or Quilt. Supporting all loaders is not required.
+        </li>
+
+        <li>
+            Third party dependencies such as libraries, frameworks, and APIs can
+            be used within reason. You will be accountable for any issues caused
+            by dependencies required by your project. You must disclose all
+            required third party dependencies when submitting your entry.
+        </li>
+
+        <li>
+            Teams are allowed. There are no limits to the size of a team and
+            participants may choose to contribute to multiple teams. Teams will
+            be responsible for distributing any prizes won by their projects
+            amongst their team members. We recommend at most 4 people per team.
+        </li>
+
+        <li>
+            Submissions must not contain malicious code or act in bad faith. We
+            expect everyone to be professional and intentionally crashing the
+            game, making the game unplayable, or maliciously tampering with
+            other submissions will not be accepted.
+        </li>
+
+        <li>
+            Event organizers and those who are employed by sponsors may
+            participate in the event however they will not be eligible to win
+            prizes. Any team these individuals are on will also be ineligible to
+            win prizes.
+        </li>
+
+        <li>
+            Submissions must be uploaded to CurseForge before the submission
+            deadline. They must also pass CurseForge's standard project review.
+            We highly encourage uploading your project as soon as possible as
+            the review process can take some time to complete and may be
+            delayed.
+        </li>
+    </ol>
+
+    <h2>Prizes & Rewards</h2>
+    <p>
+        We will be awarding ten cash prizes to eligible submissions. These
+        prizes will be awarded based on special criteria and will be determined
+        by a panel of judges composed of organizers and sponsors. All
+        participants can also claim a limited edition CurseForge T-Shirt and a
+        commemorative role on our Discord. The prize pool for this event was
+        generously provided by CurseForge.
+    </p>
+
+    <h3>Prize Categories</h3>
+    <p>
+        We will be awarding ten $100 prizes based on the specific prize
+        categories listed below. These categories are subjective and will be
+        determined by combining scores from a community vote with scores from a
+        panel of judges comprised of event organizers and sponsors. The scores
+        from each will be weighted 50/50. Submissions will also be allowed to
+        win in multiple categories.
+    </p>
+
+    <ul>
+        <li>
+            Creativity Award - Awarded to the submission with the most creative
+            concept and execution.
+        </li>
+        <li>Creepy Award - Awarded to the creepiest submission.</li>
+        <li>
+            Autumn Vibes Award - Awarded to the submission with the best vibes
+            for fall/autumn.
+        </li>
+        <li>
+            Aesthetic Award - Awarded to the submission with the best textures
+            and models.
+        </li>
+        <li>
+            Compatibility Award - Awarded to the submission with the best
+            integration with other Minecraft mods.
+        </li>
+        <li>
+            SpookyJam Compatability Award - Awarded to the submission with the
+            best integration with past and present SpookyJam entries.
+        </li>
+        <li>
+            Descriptive Award - Awarded to the project with the best written
+            CurseForge project description.
+        </li>
+        <li>
+            CurseForge Staff Pick - Awarded to a submission chosen by the
+            CurseForge team.
+        </li>
+        <li>
+            Mycelium Staff Pick - Awarded to a submission chosen by the Mycelium
+            Mod Network team.
+        </li>
+        <li>
+            Community Pick - Awarded to a submission chosed by the community.
+        </li>
+    </ul>
+
+    <h2>Submissions</h2>
+    <p>
+        We will start accepting submissions on October 7th. Please check back
+        for more information.
+    </p>
+
+    <h2>Modpack & Server</h2>
+    <p>
+        Every year we create a modpack featuring the new SpookyJam submissions.
+        This pack is published to CurseForge during the third week of October to
+        ensure particpants have time to submit their mods. We also host a public
+        Minecraft server around the same time which players can join. While the
+        pack will be updated with new submissions throughout the event we highly
+        recommend getting a version of your submission published before October
+        19th, especially if your mod adds worldgen features.
+    </p>
+
+    <h2>FaQ</h2>
+
+    <InfoBox title="Can I submit multiple entries?">
+        Yes, submitting multiple entries is allowed however we will not accept
+        spam entries. If you choose to work on multiple entries please take
+        steps to avoid stress and burnout.
+    </InfoBox>
+
+    <InfoBox title="Can I join multiple teams?">
+        Yes, you may join as many teams as you would like. We recommend being
+        transparent with your team mates if you choose to do this.
+    </InfoBox>
+
+    <InfoBox title="Can I support multiple mod loaders?">
+        Yes, you may support multiple loaders. We only require that your
+        submission support Forge, Fabric, or Quilt. Supporting more than one is
+        completely optional and may cause uneeded stress. If you are still
+        interested we recommend checking out the <a
+            href="https://github.com/Darkhax-Forked/MultiLoader-Template"
+            target="_blank">MultiLoader Template</a
+        >.
+    </InfoBox>
+
+    <InfoBox title="I am not a mod dev, how can I participate?">
+        Everyone is welcome to participate in SpookyJam. One of the easiest ways
+        to join in is by giving participants feedback and encouragement. Playing
+        with the submissions and sharing them with your friends is a great way
+        to spread the word. If you're looking to get involed in a more direct
+        way you may be able to help translate submissions to other languages,
+        contribute models or textures, or find another way to help. SpookyJam is
+        also a great opportunity to learn more about mod development and try to
+        make your own mod.
+    </InfoBox>
+
+    <InfoBox title="Can I submit a mod from a previous year?">
+        Yes, we allow entries from previous years to be resubmitted. These
+        entries are not eligible for prizes and will not receive the same amount
+        of promotion that a new submission receives. They will be considered for
+        inclusion in the modpack and public server.
+    </InfoBox>
+
+    <InfoBox
+        title="Does accepting a pull request from an ineligible person make my project ineligible?"
+    >
+        Accepting minor pull requests from an ineligible person such as an event
+        sponsor is fine. Minor pull requests would include fixing bugs, typos,
+        resource optimizations, or even localizing the project to another
+        language.
+    </InfoBox>
+
+    <InfoBox title="How will projects be judged for prizes?">
+        Projects will be judged using a combination of community voting and a
+        panel of judges. Each will account for 50% of the final results. Certain
+        categories such as community pick will only be decided using community
+        vote, while CurseForge's pick will only be decided using their judges.
+        More details will be shared closer to the voting period.
+    </InfoBox>
+    <InfoBox title="Does the mod need to be published on CurseForge?">
+        Yes, publishing your mod to CurseForge is a requirement of this event.
+        This requirement allows us to streamline the process of publishing our
+        modpack and having players connect to the server. We do not require that
+        the project is exclusively published to CurseForge.
+    </InfoBox>
+
+    <InfoBox title="Can I use a tool like MCreator?">
+        Using tools like MCreator is allowed but not recommended. Participants
+        are responsible for any bugs or issues caused by their mod, and MCreator
+        is known to produce a higher volume of these issues.
+    </InfoBox>
+
+    <InfoBox title="Can I submit a mod I did not create?">
+        No, we only accept submissions from authors of the project in question.
+    </InfoBox>
+
+    <InfoBox title="How should teams submit their projects?">
+        Teams should select one team member to submit their project. Submitting
+        the same project multiple times is not needed and will only create more
+        work for our team.
+    </InfoBox>
+
+    <InfoBox title="Do I need to submit my project?">
+        Yes, you must submit your project to us within the submission window. We
+        can't find or track your project without this.
+    </InfoBox>
+
+    <div id="sponsors">
+        <h2>Sponsors</h2>
+
+        <div class="grid sm:grid-cols-3 gap-y-5 sm:gap-x-6 mt-6 p-4 text-lg">
+            <Sponsor
+                name="CurseForge"
+                logo="sponsor_curseforge.png"
+                link="https://www.curseforge.com/?spookyjam2021"
+                description="CurseForge provides hosting for mods, addons, and user content for many popular games such as Minecraft, World of Warcraft, and Among Us."
+            />
+            <Sponsor
+                name="Nodecraft"
+                logo="sponsor_nodecraft.png"
+                link="https://nodecraft.com/r/mmd"
+                description="Nodecraft offers quality server hosting for many games such as Minecraft, Rust, and Factorio."
+            />
+        </div>
+    </div>
+</Layout>
