@@ -27,14 +27,14 @@ const { title, description, image = "/ghost_logo.png" } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content="https://spooky-jam.com/ghost_logo.png" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content="https://spooky-jam.com/ghost_logo.png" />
 
 <!-- Jared's Analytics Server -->
 <script is:inline async defer data-website-id="fee0fedb-6619-4241-93f4-54332d167f1c" src="https://analytics.blamejared.com/umami.js"></script>
