@@ -1,0 +1,13 @@
+{
+	"@context": "https://w3id.org/openbadges/v2",
+	"type": "BadgeClass",
+	"id": "https://spooky-jam.com/badges/v2/2021/participant/class.json",
+	"name": "SpookyJam 2021 Participant",
+	"description": "Awarded to participants of the SpookyJam 2021 mod jam.",
+	"image": "https://spooky-jam.com/badges/v2/2021/participant/logo.png",
+	"criteria": {
+        "narrative": "This badge is earned by submitting a valid entry to the SpookyJam 2021 mod jam."
+    },
+	"tags": ["spookyjam", "modjam", "devjam", "jam", "participation", "minecraft", "modding"],
+	"issuer": "https://spooky-jam.com/badges/v2/issuer.json"
+}

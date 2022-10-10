@@ -1,0 +1,17 @@
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://spooky-jam.com/badges/v2/2021/participation/assertion/darkhax.json",
+  "type": "Assertion",
+  "recipient": {
+    "type": "email",
+    "identity": "alice@example.org"
+  },
+  "issuedOn": "2022-10-10T06:43:47Z",
+  "verification": {
+    "type": "hosted"
+  },
+  "badge": "https://spooky-jam.com/badges/v2/2021/participation/class.json",
+  "evidence": [
+    "https://www.curseforge.com/minecraft/mc-mods/death-knell"
+  ]
+}
