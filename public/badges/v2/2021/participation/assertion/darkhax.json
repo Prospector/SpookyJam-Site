@@ -4,6 +4,7 @@
   "type": "Assertion",
   "recipient": {
     "type": "curseforge",
+    "hashed": false,
     "identity": "https://www.curseforge.com/members/darkhaxdev"
   },
   "issuedOn": "2022-10-10T06:43:47Z",
