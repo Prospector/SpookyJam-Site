@@ -1,12 +1,12 @@
 {
   "@context": "https://w3id.org/openbadges/v2",
-  "id": "https://spooky-jam.com/badges/v2/2021/participation/assertion/darkhax.json",
+  "id": "https://spooky-jam.com/badges/v2/2021/participation/assertion/jared.json",
   "type": "Assertion",
   "recipient": {
     "type": "email",
     "hashed": true,
     "salt": "lumina",
-    "identity": "sha256$A6B6B5FC777324560A9780C9F6536855A875E999E6D2D08B426C9D1F5C34458D"
+    "identity": "sha256$0BAE06F042FD617F8FDFA1F4C22F382DAEDD34F91990D616F44AD049CB5888FD"
   },
   "issuedOn": "2022-10-10T06:43:47Z",
   "verification": {
@@ -14,6 +14,6 @@
   },
   "badge": "https://spooky-jam.com/badges/v2/2021/participation/class.json",
   "evidence": [
-    "https://www.curseforge.com/minecraft/mc-mods/death-knell"
+    "https://www.curseforge.com/minecraft/mc-mods/clumps"
   ]
 }
