@@ -3,9 +3,10 @@
   "id": "https://spooky-jam.com/badges/v2/2021/participation/assertion/darkhax.json",
   "type": "Assertion",
   "recipient": {
-    "type": "curseforge",
-    "hashed": false,
-    "identity": "https://www.curseforge.com/members/darkhaxdev"
+    "type": "email",
+    "hashed": true,
+    "salt": "lumina"
+    "identity": "sha256$A6B6B5FC777324560A9780C9F6536855A875E999E6D2D08B426C9D1F5C34458D"
   },
   "issuedOn": "2022-10-10T06:43:47Z",
   "verification": {
