@@ -3,8 +3,8 @@
   "id": "https://spooky-jam.com/badges/v2/2021/participation/assertion/darkhax.json",
   "type": "Assertion",
   "recipient": {
-    "type": "email",
-    "identity": "alice@example.org"
+    "type": "curseforge",
+    "identity": "https://www.curseforge.com/members/darkhaxdev"
   },
   "issuedOn": "2022-10-10T06:43:47Z",
   "verification": {
