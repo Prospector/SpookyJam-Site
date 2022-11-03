@@ -3,7 +3,6 @@ import Layout from "../../layouts/main.astro";
 import SubmissionBox from "../../components/SubmissionBox.astro";
 import InfoBox from "../../components/InfoBox.astro";
 import Sponsor from "../../components/Sponsor.astro";
-import Timer from "../../components/Timer.astro";
 import { DISCORD } from "../../config";
 ---
 
@@ -24,15 +23,7 @@ import { DISCORD } from "../../config";
         can join and test out submissions with the community.
     </p>
 
-    <h2>Countdown</h2>
-    <Timer date={Date.UTC(2022, 9, 1, 0, 0, 0)}>
-        <p>
-            SpookyJam 2022 has officially started! You may now begin working on
-            your submission!
-        </p>
-    </Timer>
-
-    <h2>Rules</h2>
+    <h2 id="rules">Rules</h2>
     <p>
         We have put the following rules in place to ensure a safe and fair
         experience for all participants. Violating these rules may result in
@@ -106,7 +97,7 @@ import { DISCORD } from "../../config";
         </li>
     </ol>
 
-    <h2>Prizes & Rewards</h2>
+    <h2 id="prizes">Prizes & Rewards</h2>
     <p>
         We will be awarding ten cash prizes of $100 to eligible submissions.
         These prizes will be awarded based on special criteria and will be
@@ -167,26 +158,29 @@ import { DISCORD } from "../../config";
         </li>
     </ul>
 
-    <h2>Submissions</h2>
+    <h3 id="vote">Vote!</h3>
     <p>
-        Submissions are collected using Google Forms. Please submit your 
-        submissions <a href='https://forms.gle/KE7FMiR5qAnsytKi9' target='_blank'>here</a>.
+        The prizes for this years event will be partly distributed based on
+        votes from the community. The community vote will run until November
+        14th! You can vote for your favorite submissions <a
+            href="https://forms.gle/HzcShempJSGaN67h8"
+            target="_blank">here</a
+        >.
     </p>
 
+    <h2 id="entries">Entries</h2>
     <SubmissionBox year="2022" />
 
-    <h2>Modpack & Server</h2>
+    <h2 id="modpack">Modpack</h2>
     <p>
-        Every year we create a modpack featuring the new SpookyJam submissions.
-        This pack is published to CurseForge during the third week of October to
-        ensure participants have time to submit their mods. We also host a
-        public Minecraft server around the same time which players can join.
-        While the pack will be updated with new submissions throughout the event
-        we highly recommend getting a version of your submission published
-        before October 19th, especially if your mod adds worldgen features.
+        Every year we create a modpack that features the new SpookyJam entries.
+        You can download the pack forge version of the pack <a
+            href="https://www.curseforge.com/minecraft/modpacks/spookyjam-2022-forge"
+            target="_blank">here</a
+        >. A Fabric version of the pack will soon be available.
     </p>
 
-    <h2>FaQ</h2>
+    <h2 id="faq">FaQ</h2>
 
     <InfoBox title="Can I submit multiple entries?">
         Yes, submitting multiple entries is allowed however we will not accept
