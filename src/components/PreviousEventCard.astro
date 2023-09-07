@@ -1,0 +1,16 @@
+---
+import { Image, Picture } from '@astrojs/image/components';
+
+const {event, left, center, right} = Astro.props;
+---
+
+<div>
+    <div class="w-full border-2 border-yellow-800 p-1 bg-yellow-900 bg-opacity-25">
+        <a href=`/events/${event}` target="_self" class="text-white">
+            {event}
+        </a>
+    </div>
+    <a href=`/events/${event}` target="_self">
+        <img src=`/thumbnails/${event}.png` width="1280" height="720" alt=`Information about SpookyJam: ${event}. Left: ${left}, Center:${center}, Right:${right}` class="transition-transform ease-in-out hover:scale-105"/>
+    </a>
+</div>
