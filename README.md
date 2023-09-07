@@ -1,11 +1,9 @@
-# Astro with Tailwind
+# SpookyJam Site
+This repo contains the source code for the official SpookyJam website. The site can be viewed in production 
+[here](spooky-jam.com).
 
-```
-npm init astro -- --template with-tailwindcss
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
-
-For complete setup instructions, please see our [Styling Guide](https://docs.astro.build/guides/styling#-tailwind).
+## Technical Information
+This project is built with [AstroJS](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). The website is 
+static and we try to avoid shipping JavaScript when possible. We also use the 
+[CurseForge Eternal API](https://docs.curseforge.com) which will require an API key to build the project. The CurseForge
+ API key can be speciefied by setting `CURSEFORGE_API_KEY` in your `.env` file.
