@@ -1,7 +1,6 @@
 export const TITLE = 'SpookyJam';
 export const DESCRIPTION = 'The official home of the annual SpookyJam mod jam.';
 export const DISCORD = 'https://discord.spooky-jam.com'
-export const TWITTER = 'https://twitter.com/darkhaxdev'
 export const GITHUB = 'https://github.com/Mycelium-Mod-Network'
 
 export const SUBMISSIONS     = new Map<string, number[]>([
