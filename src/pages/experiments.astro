@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/main.astro";
+import { DISCORD } from "../config";
+import Timer from "../components/Timer.astro";
+import ImageGallery from "../components/ImageGallery.astro";
+---
+
+<Layout title="Experiments" description="Experimental website features.">
+
+    <p>
+        This page contains experimental features for the SpookyJam site. These features are work in progress and may not
+        be included in future events or updates. If you have feedback on these features let us know on the Discord!
+    </p>
+
+    <ImageGallery width="1280" height="720" images={[
+        {
+            src: "/showcase/bone_zone.png",
+            name: "Bone Zone (2022)",
+            description: "A variety of spooky and macabre decorations based on skeletons and bones."
+        },
+        {
+            src: "/showcase/broglis_owls.png",
+            name: "Broglis Owls (2022)",
+            description: "Improve the atmosphere of your world with these cute owls you can find and befriend."
+        },
+        {
+            src: "/showcase/gardens_of_the_dead.png",
+            name: "Gardens of the Dead (2022)",
+            description: "Expands the Nether with new biomes and environments."
+        }
+    ]}/>
+</Layout>
