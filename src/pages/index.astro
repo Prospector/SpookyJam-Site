@@ -17,7 +17,20 @@ import Timer from "../components/Timer.astro";
 		collaborate, and form new friendships.
 	</p>
 
-	<p class="mt-16">
-		SpookyJam 2023 will be officially announced soon! Please check back for more information later.
+	<h2 id="next-event">SpookyJam 2023</h2>
+	<p>
+		The next SpookyJam event will begin on September 20th 2023! We look forward to celebrating with the community
+		and hope you will join us! You can learn more about the event <a href="/events/2023">here</a>. We also recommend
+		joining the <a href={DISCORD}>Discord</a> server to keep up with the latest news and conversations surrounding
+		the event.
 	</p>
+	<h3>Countdown Timer</h3>
+	<Timer date={Date.UTC(2023, 8, 20, 0, 0, 0)}>
+		<p>
+			SpookyJam 2023 has officially started! You may now start working on your entries. You will have until the
+			end of October to submit your entry. We recommend submitting your entries as soon as possible so players can
+			have time to enjoy your mods. If you have any questions or want to track progress we recommend joining our
+			<a href={DISCORD}>Discord</a> server.
+		</p>
+	</Timer>
 </Layout>

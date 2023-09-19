@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/main.astro";
 import PreviousEventCard from "../components/PreviousEventCard.astro";
+import {DISCORD} from "../config";
+import Timer from "../components/Timer.astro";
 ---
 
 <Layout
@@ -8,8 +10,12 @@ import PreviousEventCard from "../components/PreviousEventCard.astro";
     description="A list of all past and current SpookyJam events!"
 >
     <h2 id="current-events">Current Events</h2>
+
     <p>
-        SpookyJam 2023 will be coming soon! Check back later for more information.
+        The next SpookyJam event will begin on September 20th 2023! We look forward to celebrating with the community
+        and hope you will join us! You can learn more about the event <a href="/events/2023">here</a>. We also recommend
+        joining the <a href={DISCORD}>Discord</a> server to keep up with the latest news and conversations surrounding
+        the event.
     </p>
 
     <h2 id="past-events">Past Events</h2>
