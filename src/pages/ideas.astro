@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/main.astro";
+import Idea from "../components/Idea.astro";
+import Link from "../components/Link.astro";
+---
+
+<Layout title="Mod Ideas" description="Ideas and inspirations to help you make your SpookyJam mods!">
+
+    <p>
+        Are you having issues coming up with an idea for SpookyJam? Don't worry, this type of thing happens to everyone
+        from time to time. The following list of ideas has been put together by our community to help inspire you!
+    </p>
+
+    <Idea title="Dungeons & Structures" difficulty={1} spookFactor={3}>
+
+        <p>
+            Structures are a great way to add mystery and intrigue to the game while also providing fun challenges for
+            players to engage with. By using the structure blocks and JigSaw system adding new dungeons and structures
+            can be as easy as building them in game and exporting the structure files. Structures also provide a great
+            way to tell a story using the environment. The blocks you use, the mobs you spawn, and the loot you include
+            all provide hints clues that players can use to construct their own narratives. Some specific structures you
+            could add are graveyards, crypts, ghost ships, haunted houses, pyramids, corn mazes, or even a mad scientist
+            lab.
+        </p>
+    </Idea>
+
+    <Idea title="Decorations" difficulty={3} spookFactor={3}>
+        <p>
+            Decorations are a key element when celebrating many holidays and traditions. Adding some new types of
+            decorations can help players spruce up their builds and help them celebrate the spooky season. There are
+            many real world examples to draw inspiration from such as pumpkins, grave stones, skeletons, ghosts, and
+            candles.
+        </p>
+    </Idea>
+
+    <Idea title="Cryptids & Folklore" difficulty={4} spookFactor={4}>
+        <p>
+            Tales of unexplained creatures and entities are told universally around the globe. These stories can provide
+            a lot of inspiration for adding new creatures to the game. While there are many popular cryptids such as the
+            mothman, bigfoot, and the loch ness monster, there are also hundreds of lesser known stories that may
+            inspire you like the
+            <Link href="https://en.wikipedia.org/wiki/Will-o%27-the-wisp" text="Will-o'-the-wisp"/>,
+            <Link href="https://en.wikipedia.org/wiki/Lindworm" text="Lindwyrm"/>, and the
+            <Link href="https://en.wikipedia.org/wiki/Selkie" text="Selkie"/>.
+        </p>
+    </Idea>
+
+    <Idea title="Potions & Apothecary" difficulty={2} spookFactor={2}>
+        <p>
+            Did you know that many seemingly exotic potion ingredients are actually common materials? In the past
+            herbalists would often use body parts when referring to parts of plants for example seeds were often called
+            eyes. Ingredients like eye of newt refer to mustard seed and toe of frog refers to bulbous buttercup. These
+            concepts could lay the foundation for extending the potion system.
+        </p>
+    </Idea>
+</Layout>

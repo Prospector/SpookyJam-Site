@@ -1,0 +1,7 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const { href, text, ...props } = Astro.props as Props;
+---
+
+<a href={href} target="_blank">{text}</a>

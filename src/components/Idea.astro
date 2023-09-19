@@ -1,0 +1,17 @@
+---
+import { Image, Picture } from '@astrojs/image/components';
+export interface Props {
+    title: string,
+    difficulty: number,
+    spookFactor: number
+}
+
+const { title, difficulty, spookFactor, ...props } = Astro.props as Props;
+---
+
+<div class="border-2 border-yellow-700 bg-yellow-900 bg-opacity-25 px-4 py-2">
+    <h2 class="my-0">Idea: {title}</h2>
+    <p class="my-0">Spook Factor: {spookFactor}/5</p>
+    <p class="my-0">Difficulty: {difficulty}/5</p>
+    <slot/>
+</div>
