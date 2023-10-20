@@ -5,6 +5,19 @@ export const GITHUB = 'https://github.com/Mycelium-Mod-Network'
 
 export const SUBMISSIONS     = new Map<string, number[]>([
     [
+        "2023", [
+            915336,
+            921185,
+            919216,
+            920221,
+            915756,
+            915749,
+            920484,
+            922521,
+            924895
+        ]
+    ],
+    [
         "2022", [
             684453,
             687184,

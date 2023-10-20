@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/main.astro";
 import InfoBox from "../../components/InfoBox.astro";
+import SubmissionBox from "../../components/SubmissionBox.astro";
 import Sponsor from "../../components/Sponsor.astro";
 import { DISCORD } from "../../config";
 import Timer from "../../components/Timer.astro";
@@ -128,6 +129,10 @@ const MULTILOADER = "https://github.com/jaredlll08/MultiLoader-Template"
     <p>
         Participants may submit their projects <a href="https://forms.gle/14SpSMxEHadbRBQRA" target="_blank">here</a>.
     </p>
+
+    <h2 id="entries">Entries</h2>
+    <SubmissionBox year="2023" />
+
 
     <h2 id="faq">FaQ</h2>
 

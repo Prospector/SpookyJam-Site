@@ -13,6 +13,7 @@ submissionIds.push(...(SUBMISSIONS.get("2019") ?? []));
 submissionIds.push(...(SUBMISSIONS.get("2020") ?? []));
 submissionIds.push(...(SUBMISSIONS.get("2021") ?? []));
 submissionIds.push(...(SUBMISSIONS.get("2022") ?? []));
+submissionIds.push(...(SUBMISSIONS.get("2023") ?? []));
 
 const submissions = await fetchMods(
     submissionIds,
@@ -44,6 +45,9 @@ const sum = submissions.reduce(
         CurseForge! Below you will find a complete list of every project submitted
         to SpookyJam so far!
     </p>
+
+    <h2 id="2023">2023</h2>
+    <SubmissionBox year="2023" />
 
     <h2 id="2022">2022</h2>
     <SubmissionBox year="2022" />
