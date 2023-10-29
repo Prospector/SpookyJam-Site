@@ -1,10 +1,8 @@
 ---
-import type { ProjectData } from "../util/curseforge.js";
 import Layout from "../layouts/main.astro";
-import { fetchMods } from "../util/curseforge.js";
+import { fetchModsWithDownloads } from "../util/curseforge.js";
 import { SUBMISSIONS } from "../config.js";
 import SubmissionBox from "../components/SubmissionBox.astro";
-import InfoBox from "../components/InfoBox.astro";
 
 const submissionIds = [] as number[];
 submissionIds.push(...(SUBMISSIONS.get("2017") ?? []));
@@ -15,7 +13,7 @@ submissionIds.push(...(SUBMISSIONS.get("2021") ?? []));
 submissionIds.push(...(SUBMISSIONS.get("2022") ?? []));
 submissionIds.push(...(SUBMISSIONS.get("2023") ?? []));
 
-const submissions = await fetchMods(
+const submissions = await fetchModsWithDownloads(
     submissionIds,
     import.meta.env.CURSEFORGE_API_KEY
 );

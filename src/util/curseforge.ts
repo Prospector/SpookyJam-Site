@@ -33,8 +33,50 @@ export async function fetchMod(projectId: number, apiKey: string): Promise<Proje
         });
 }
 
+export async function fetchModsWithDownloads(projectIds: number[], apiKey: string): Promise<ProjectData[]> {
+
+    const baseProjectData = await fetchMods(projectIds, apiKey);
+    const currentDownloads = await fetchDownloads(projectIds, apiKey);
+
+    for (let project of baseProjectData) {
+
+        project.downloads = currentDownloads.get(project.id.toString()) as number
+    }
+
+    return baseProjectData;
+}
+
+export async function fetchDownloads(projectIds: number[], apiKey: string): Promise<Map<string, number>> {
+
+    const requestHeaders: HeadersInit = new Headers();
+    requestHeaders.set('Content-Type', 'application/json')
+    requestHeaders.set('Accept', 'application/json');
+    requestHeaders.set('x-api-key', apiKey);
+
+    return await fetch(`https://api.curseforge.com/v1/downloads/mods`, {
+        method: 'POST',
+        headers: requestHeaders,
+        body: JSON.stringify(projectIds)
+    })
+
+        // Convert to JSON
+        .then(response => {
+
+            if (!response.ok || response.status != 200) {
+                console.log(`Failed to get data from CurseForge for projects ${projectIds}. Trying again.`);
+                throw new Error(`Failed to get data from CurseForge for projects ${projectIds}. Trying again.`);
+            }
+
+            return response.json();
+        })
+        .then(rawJson => new Map(Object.entries(rawJson.data)))
+        .catch(error => fetchDownloads(projectIds, apiKey));
+}
+
 export async function fetchMods(projectIds: number[], apiKey: string): Promise<ProjectData[]> {
 
+    const downloadData = await fetchDownloads(projectIds, apiKey);
+    console.log(JSON.stringify(downloadData));
     const requestHeaders: HeadersInit = new Headers();
     requestHeaders.set('Content-Type', 'application/json')
     requestHeaders.set('Accept', 'application/json');
