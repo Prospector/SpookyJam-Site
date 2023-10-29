@@ -63,20 +63,18 @@ export async function fetchDownloads(projectIds: number[], apiKey: string): Prom
         .then(response => {
 
             if (!response.ok || response.status != 200) {
-                console.log(`Failed to get data from CurseForge for projects ${projectIds}. Trying again.`);
-                throw new Error(`Failed to get data from CurseForge for projects ${projectIds}. Trying again.`);
+                console.log(`Failed to get downloads from CurseForge for projects ${projectIds}. Trying again.`);
+                throw new Error(`Failed to get downloads from CurseForge for projects ${projectIds}. Trying again.`);
             }
 
             return response.json();
         })
-        .then(rawJson => new Map(Object.entries(rawJson.data)))
+        .then(rawJson => new Map(Object.entries(rawJson.data)) as Map<string, number>)
         .catch(error => fetchDownloads(projectIds, apiKey));
 }
 
 export async function fetchMods(projectIds: number[], apiKey: string): Promise<ProjectData[]> {
 
-    const downloadData = await fetchDownloads(projectIds, apiKey);
-    console.log(JSON.stringify(downloadData));
     const requestHeaders: HeadersInit = new Headers();
     requestHeaders.set('Content-Type', 'application/json')
     requestHeaders.set('Accept', 'application/json');
