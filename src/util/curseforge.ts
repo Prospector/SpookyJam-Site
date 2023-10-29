@@ -36,12 +36,12 @@ export async function fetchMod(projectId: number, apiKey: string): Promise<Proje
 export async function fetchModsWithDownloads(projectIds: number[], apiKey: string): Promise<ProjectData[]> {
 
     const baseProjectData = await fetchMods(projectIds, apiKey);
-    const currentDownloads = await fetchDownloads(projectIds, apiKey);
-
-    for (let project of baseProjectData) {
-
-        project.downloads = currentDownloads.get(project.id.toString()) as number
-    }
+    // const currentDownloads = await fetchDownloads(projectIds, apiKey);
+    //
+    // for (let project of baseProjectData) {
+    //
+    //     project.downloads = currentDownloads.get(project.id.toString()) as number
+    // }
 
     return baseProjectData;
 }
