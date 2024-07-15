@@ -5,12 +5,15 @@ import SubmissionBox from "../../components/SubmissionBox.astro";
 import Sponsor from "../../components/Sponsor.astro";
 import { DISCORD } from "../../config";
 import Timer from "../../components/Timer.astro";
+import ArchiveNotice from "../../components/ArchiveNotice.astro";
 
 const SINYTRA = "https://www.curseforge.com/minecraft/mc-mods/sinytra-connector"
 const MULTILOADER = "https://github.com/jaredlll08/MultiLoader-Template"
 ---
 
 <Layout title="SpookyJam 2023" description="Celebrate the fall season with the modded Minecraft community! SpookyJam 2023 will be taking place September 20th to October 31st!">
+
+    <ArchiveNotice/>
 
     <p>
         SpookyJam is upon us once again! Join us in celebrating the fall season and the modded Minecraft community with
@@ -25,16 +28,6 @@ const MULTILOADER = "https://github.com/jaredlll08/MultiLoader-Template"
         encouragement from players can go a long way. Participating in the event yourself may also be easier than you
         think! Join our <a href={DISCORD} target="_blank">Discord</a> for more info.
     </p>
-
-    <h3 id="timer">Countdown Timer</h3>
-    <Timer date={Date.UTC(2023, 8, 20, 0, 0, 0)}>
-        <p>
-            SpookyJam 2023 has officially started! You may now start working on your entries. You will have until the
-            end of October to submit your entry. We recommend submitting your entries as soon as possible so players can
-            have time to enjoy your mods. If you have any questions or want to track progress we recommend joining our
-            <a href={DISCORD}>Discord</a> server.
-        </p>
-    </Timer>
 
     <h2 id="rules">Rules</h2>
 
@@ -112,17 +105,15 @@ const MULTILOADER = "https://github.com/jaredlll08/MultiLoader-Template"
     <h2 id="prizes">Prizes & Rewards</h2>
 
     <p>
-        This year we will be working with CurseForge to send limited edition prizes to participants of the event. More
-        details about these prizes will be revealed closer to the end of the event. To receive the prize your submission
-        must follow all rules of the event. Prizes are limited to one per person. We will also be screening submissions
-        to check for abuse.
+        This year we are partnering with CurseForge to provide a limited edition CursedForge sweatshirt to participants
+        of the event! To receive the sweatshirt your submission must follow all rules of the event. Prizes are limited
+        to one per person. We will also be screening submissions to check for abuse.
     </p>
 
     <h2 id="modpack-server">Modpack & Server</h2>
     <p>
         Each year we put together a modpack that showcases mods participating in the event. We also host a public server
-        for players to explore these mods together! More information about the modpack and server will be released near
-        the end of October.
+        for players to explore these mods together! You can download the modpack [here](https://www.curseforge.com/minecraft/modpacks/spookyjam-2023).
     </p>
 
     <h2 id="sumbissions">Submissions</h2>
