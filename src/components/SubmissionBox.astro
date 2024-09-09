@@ -1,5 +1,6 @@
 ---
-import { fetchModsWithDownloads } from "../util/curseforge.js";
+import type {ProjectData} from "../util/curseforge.js"
+import { fetchMods } from "../util/curseforge.js";
 import { SUBMISSIONS } from "../config.js";
 import ModCard from "./ModCard.astro";
 
@@ -10,11 +11,11 @@ export interface Props {
 const { year, ...props } = Astro.props as Props;
 
 const submissionIds = SUBMISSIONS.get(year) ?? [];
-const submissions = await fetchModsWithDownloads(submissionIds, import.meta.env.CURSEFORGE_API_KEY);
-submissions.sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf());
+const submissions: ProjectData[] = await fetchMods(submissionIds)
+submissions.sort((a, b) => new Date(b.created_at).valueOf() - new Date(a.created_at).valueOf());
 const allAuthors = new Set();
-submissions.forEach((project) => project.authors.forEach((author) => allAuthors.add(author.name)));
-const sum = submissions.reduce((downloads, project) => downloads + project.downloads, 0);
+submissions.forEach((project) => project.members.forEach((author) => allAuthors.add(author.username)));
+const sum = submissions.reduce((downloads, project) => downloads + project.downloads.total, 0);
 ---
 
 <p>

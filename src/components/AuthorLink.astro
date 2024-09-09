@@ -1,8 +1,8 @@
 ---
-import type { Author } from '../util/curseforge.js';
+import type { Member } from '../util/curseforge.js';
 
 export interface Props {
-	author: Author,
+	author: Member,
     isLast: boolean
 }
 
@@ -12,5 +12,5 @@ function truncate(str: string, max = 100): string {
     return str.length > max ? `${str.substring(0, max)}...` : str;
 }
 ---
-<a class= 'font-bold text-base sm:text-xl' href={author.profile}>{author.name}</a>
+<a class= 'font-bold text-base sm:text-xl' href={`https://www.curseforge.com/members/${author.username}/projects`}>{author.username}</a>
 {!isLast ? ', ' : ''}

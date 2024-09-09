@@ -1,197 +1,92 @@
-// TODO Maybe consider developing a TypeScript library for using the CF API?
-export async function fetchMod(projectId: number, apiKey: string): Promise<ProjectData> {
+export const PROJECT_CACHE: Map<number, Promise<ProjectData>> = new Map()
+const delay = (ms = 1) => new Promise(r => setTimeout(r, ms));
 
-    const requestHeaders: HeadersInit = new Headers();
-    requestHeaders.set('Accept', 'application/json');
-    requestHeaders.set('x-api-key', apiKey);
+export async function fetchMod(projectId: number): Promise<ProjectData> {1
+    if (PROJECT_CACHE.has(projectId)) {
+        return PROJECT_CACHE.get(projectId) as Promise<ProjectData>
+    }
+    const request: Promise<ProjectData> = fetchRecursive(projectId)
+    PROJECT_CACHE.set(projectId, request)
+    return request;
+}
 
-    return await fetch(`https://api.curseforge.com/v1/mods/${projectId}`, {
-        method: 'GET',
-        headers: requestHeaders
-    })
-
-        // Convert to JSON
-        .then(response => {
-
-            if (!response.ok) {
-                console.log(`Failed to get data from CurseForge for project ${projectId}. Trying again.`);
-                return fetchMod(projectId, apiKey);
-            }
-
-            return response.json();
+async function fetchRecursive(projectId: number): Promise<ProjectData> {
+    return await fetch(`https://api.cfwidget.com/${projectId}`)
+        .then(res => res.json())
+        .then(json => json as ProjectData)
+        .catch(reason => {
+            console.log(`Failed to get data from CurseForge for project ${projectId}: ${reason}. Trying again.`);
+            return fetchRecursive(projectId);
         })
-
-        // Convert JSON to response type.
-        .then(json => {
-            return json as Promise<RawData<RawProject>>;
-        })
-
-        // Covert response type to our type.
-        .then(rawData => {
-
-            return mapToProjectData(rawData.data);
-        });
 }
 
-export async function fetchModsWithDownloads(projectIds: number[], apiKey: string): Promise<ProjectData[]> {
-
-    const baseProjectData = await fetchMods(projectIds, apiKey);
-    // const currentDownloads = await fetchDownloads(projectIds, apiKey);
-    //
-    // for (let project of baseProjectData) {
-    //
-    //     project.downloads = currentDownloads.get(project.id.toString()) as number
-    // }
-
-    return baseProjectData;
+export async function fetchMods(projectIds: number[]): Promise<ProjectData[]> {
+    const requests: Array<ProjectData> = [];
+    for (const project of projectIds) {
+        await delay()
+        requests.push(await fetchMod(project));
+    }
+    return Promise.all(requests);
 }
 
-export async function fetchDownloads(projectIds: number[], apiKey: string): Promise<Map<string, number>> {
-
-    const requestHeaders: HeadersInit = new Headers();
-    requestHeaders.set('Content-Type', 'application/json')
-    requestHeaders.set('Accept', 'application/json');
-    requestHeaders.set('x-api-key', apiKey);
-
-    return await fetch(`https://api.curseforge.com/v1/downloads/mods`, {
-        method: 'POST',
-        headers: requestHeaders,
-        body: JSON.stringify(projectIds)
-    })
-
-        // Convert to JSON
-        .then(response => {
-
-            if (!response.ok || response.status != 200) {
-                console.log(`Failed to get downloads from CurseForge for projects ${projectIds}. Trying again.`);
-                throw new Error(`Failed to get downloads from CurseForge for projects ${projectIds}. Trying again.`);
-            }
-
-            return response.json();
-        })
-        .then(rawJson => new Map(Object.entries(rawJson.data)) as Map<string, number>)
-        .catch(error => fetchDownloads(projectIds, apiKey));
+export interface ProjectData {
+    id: number
+    title: string
+    summary: string
+    description: string
+    game: string
+    type: string
+    urls: Urls
+    thumbnail: string
+    created_at: string
+    downloads: Downloads
+    license: string
+    donate: string
+    categories: string[]
+    members: Member[]
+    links: any[]
+    files: File[]
+    download: Download
 }
 
-export async function fetchMods(projectIds: number[], apiKey: string): Promise<ProjectData[]> {
-
-    const requestHeaders: HeadersInit = new Headers();
-    requestHeaders.set('Content-Type', 'application/json')
-    requestHeaders.set('Accept', 'application/json');
-    requestHeaders.set('x-api-key', apiKey);
-
-    return await fetch(`https://api.curseforge.com/v1/mods`, {
-        method: 'POST',
-        headers: requestHeaders,
-        body: JSON.stringify({
-            modIds: projectIds
-        })
-    })
-
-        // Convert to JSON
-        .then(response => {
-
-            if (!response.ok || response.status != 200) {
-                console.log(`Failed to get data from CurseForge for projects ${projectIds}. Trying again.`);
-                throw new Error(`Failed to get data from CurseForge for projects ${projectIds}. Trying again.`);
-            }
-
-            return response.json();
-        })
-
-        // Convert JSON to response type.
-        .then(rawJson => {
-
-            return rawJson as Promise<RawData<RawProject[]>>;
-        })
-
-        // Convert response type to our type.
-        .then(rawData => {
-
-            return rawData.data.map(entry => mapToProjectData(entry)) as ProjectData[];
-        }).catch(error => {
-            
-            return fetchMods(projectIds, apiKey);
-        });
+export interface Urls {
+    curseforge: string
+    project: string
 }
 
-function mapToProjectData(rawProject: RawProject): ProjectData {
-
-    return <ProjectData>{
-        id: rawProject.id,
-        name: rawProject.name,
-        slug: rawProject.slug,
-        summary: rawProject.summary,
-        downloads: rawProject.downloadCount,
-        url: rawProject.links.websiteUrl,
-        logo: rawProject.logo.thumbnailUrl,
-        authors: rawProject.authors.map((rawAuthor: RawAuthor) => ({
-            name: rawAuthor.name,
-            profile: rawAuthor.url
-        })) as Author[],
-        pubDate: new Date(rawProject.dateReleased)
-    };
+export interface Downloads {
+    monthly: number
+    total: number
 }
 
-export type Author = {
-
-    name: string;
-    profile: string;
+export interface Member {
+    title: string
+    username: string
+    id: number
 }
 
-export type ProjectData = {
-
-    id: number;
-    name: string;
-    slug: string;
-    summary: string;
-    downloads: number;
-    url: string;
-    logo: string;
-    authors: Author[];
-    pubDate: Date;
-}
-
-interface RawData<T> {
-
-    data: T
-}
-
-interface RawProject {
-
-    id: number,
-    name: string,
-    slug: string,
-    summary: string,
-    downloadCount: number,
-    links: RawLinks,
-    logo: RawLogo,
-    authors: RawAuthor[],
-    dateReleased: Date,
-    dateCreated: Date,
-    allowModDistribution: boolean
-
-}
-
-interface RawAuthor {
-    id: number,
-    name: string,
+export interface File {
+    id: number
     url: string
+    display: string
+    name: string
+    type: string
+    version: string
+    filesize: number
+    versions: string[]
+    downloads: number
+    uploaded_at: string
 }
 
-interface RawLogo {
-
-    id: number,
-    title: string,
-    description: string,
-    thumbnailUrl: string,
+export interface Download {
+    id: number
     url: string
-}
-
-interface RawLinks {
-
-    websiteUrl: string,
-    wikiUrl: string,
-    issueUrl: string,
-    sourceUrl: string
+    display: string
+    name: string
+    type: string
+    version: string
+    filesize: number
+    versions: string[]
+    downloads: number
+    uploaded_at: string
 }
