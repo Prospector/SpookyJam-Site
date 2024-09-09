@@ -1,8 +1,5 @@
 import type {APIContext} from "astro";
-import {
-    fetchMods,
-    type ProjectData,
-} from "../../util/curseforge.js";
+import {fetchMods, type ProjectData,} from "../../util/curseforge.js";
 import {SUBMISSIONS} from "../../config.js";
 
 export async function GET(context: APIContext) {
