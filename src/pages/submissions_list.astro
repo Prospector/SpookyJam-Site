@@ -13,7 +13,6 @@ const submissions = await fetchMods(submissionIds)
 submissions.sort((a, b) => new Date(b.created_at).valueOf() - new Date(a.created_at).valueOf());
 const allAuthors = new Set();
 submissions.forEach((project) => project.members.forEach((author) => allAuthors.add(author.username)));
-console.log(allAuthors)
 const sum = submissions.reduce((downloads, project) => downloads + project.downloads.total, 0);
 ---
 
