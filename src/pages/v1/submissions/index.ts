@@ -1,6 +1,6 @@
 import type {APIContext} from "astro";
-import {fetchMods, type Submission} from "../../util/curseforge.js";
-import {SUBMISSIONS} from "../../config.js";
+import {fetchMods, type Submission} from "../../../util/curseforge.js";
+import {SUBMISSIONS} from "../../../config.js";
 
 export async function GET(context: APIContext) {
     const projectData: Map<String, Submission[]> = new Map()
