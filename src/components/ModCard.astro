@@ -1,9 +1,9 @@
 ---
-import type { ProjectData, Author } from "../util/curseforge.js";
+import type { Submission, Author } from "../util/curseforge.js";
 import AuthorLink from "./AuthorLink.astro";
 
 export interface Props {
-    project: ProjectData;
+    project: Submission;
 }
 
 const { project, ...props } = Astro.props as Props;
@@ -13,11 +13,11 @@ function truncate(str: string, max = 100): string {
 }
 ---
 
-<div class="flex gap-x-4 p-2 border-2 border-yellow-700 bg-yellow-900 bg-opacity-25 lg:transition-transform lg:ease-in-out lg:hover:scale-105">
+<div class="flex gap-x-2 p-2 border-2 border-yellow-700 bg-yellow-900 bg-opacity-25 lg:transition-transform lg:ease-in-out lg:hover:scale-105">
     <div class="flex-none w-32 h-32 my-auto">
-        <a href={project.urls.curseforge} target="_blank"
+        <a href={project.url} target="_blank"
             ><img
-                src={project.thumbnail}
+                src={project.logo}
                 width={128}
                 height={128}
                 class="bg-[#1F1F1F] border border-yellow-700"
@@ -28,12 +28,12 @@ function truncate(str: string, max = 100): string {
 
     <div class="flex-grow">
         <a
-            class="text-xl sm:text-2xl lg:text-3xl font-medium"
-            href={project.urls.curseforge}
+            class="text-xl font-medium"
+            href={project.url}
             target={"_blank"}
             >{truncate(project.title, 25)}
         </a>
-        <p class="text-lg lg:text-xl">
+        <p class="text-sm mt-0 mb-1">
             By: {
                 project.members.map((author, index: number) => (
                     <AuthorLink
@@ -44,7 +44,7 @@ function truncate(str: string, max = 100): string {
             }
         </p>
 
-        <p class="text-sm sm:text-base lg:text-lg">
+        <p class="text-base my-0">
             {truncate(project.summary)}
         </p>
     </div>

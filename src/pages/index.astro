@@ -1,36 +1,30 @@
 ---
 import Layout from "../layouts/main.astro";
-import { DISCORD } from "../config";
+import {DISCORD} from "../config";
 import Timer from "../components/Timer.astro";
 ---
 
-<Layout
-	title="SpookyJam"
-	description="The official home of the annual SpookyJam mod jam!"
->
+<Layout title="SpookyJam" description="The official home of the annual SpookyJam mod jam!">
 
-	<p>
-		SpookyJam is an annual Minecraft mod jam held in celebration of the fall season and the modded Minecraft
-		community. During SpookyJam we encourage community members to create new mods that are spooky, mysterious, or
-		give off autumn vibes. Our goal is to bring the community together and encourage mod developers to challenge
-		themselves and further hone their skills and abilities. We also encourage the community to work together,
-		collaborate, and form new friendships.
-	</p>
+    <p>
+        SpookyJam is an annual Minecraft mod jam held in celebration of the fall season. Each fall we invite modders of
+        all skill levels to join us in creating mods that are spooky, mysterious, or fit with the autumn vibes. Our goal
+        is to foster a sense of community while encouraging modders to push their creative boundaries and refine their
+        craft.
+    </p>
 
-	<h2 id="next-event">SpookyJam 2023</h2>
-	<p>
-		The next SpookyJam event will begin on September 20th 2023! We look forward to celebrating with the community
-		and hope you will join us! You can learn more about the event <a href="/events/2023">here</a>. We also recommend
-		joining the <a href={DISCORD}>Discord</a> server to keep up with the latest news and conversations surrounding
-		the event.
-	</p>
-	<h3>Countdown Timer</h3>
-	<Timer date={Date.UTC(2023, 8, 20, 0, 0, 0)}>
-		<p>
-			SpookyJam 2023 has officially started! You may now start working on your entries. You will have until the
-			end of October to submit your entry. We recommend submitting your entries as soon as possible so players can
-			have time to enjoy your mods. If you have any questions or want to track progress we recommend joining our
-			<a href={DISCORD}>Discord</a> server.
-		</p>
-	</Timer>
+    <h2 id="next-event">SpookyJam 2024</h2>
+    <p>
+        The next SpookyJam event will begin on October 1st! We look forward to celebrating with the community and hope
+        you will join us! You can learn more about the event <a href="/events/2024">here</a>. We also recommend joining
+        the <a href={DISCORD}>Discord</a> server to keep up with the latest news and conversations surrounding the event
+        .
+    </p>
+    <Timer date={Date.UTC(2024, 9, 1, 0, 0, 0) - (12 * 60 * 60 * 1000)}>
+        <p>
+            SpookyJam 2024 has officially started! You may now start working on your submissions. You will have until
+            the end of October to submit your entry. We recommend submitting your entry as soon as possible so players
+            can have time to enjoy your mods.
+        </p>
+    </Timer>
 </Layout>

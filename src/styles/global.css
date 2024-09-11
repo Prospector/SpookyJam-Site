@@ -12,7 +12,6 @@
 }
 
 ol {
-
     @apply list-decimal
 }
 
@@ -29,7 +28,6 @@ h2, h3, h4, h5, h6 {
 }
 
 p {
-
     @apply my-3
 }
 
@@ -75,4 +73,12 @@ details > summary {
 
 details > summary::-webkit-details-marker {
     display: none;
+}
+
+.spooky-text {
+    @apply text-red-800
+}
+
+strong {
+    @apply text-amber-400;
 }

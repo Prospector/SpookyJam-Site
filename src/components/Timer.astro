@@ -62,6 +62,13 @@ const { date, refreshRate = 1000} = Astro.props;
         document.querySelector(".minutes").innerText = minutes;
         document.querySelector(".seconds").innerText = seconds;
 
+        if (seconds == 4) {
+            document.querySelector(".seconds").classList.add("spooky-text")
+        }
+        if (seconds == 3) {
+            document.querySelector(".seconds").classList.remove("spooky-text")
+        }
+
         // Stop updating if the timer hits 0.
         if (total <= 0) {
 

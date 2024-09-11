@@ -1,6 +1,5 @@
 ---
-import type {ProjectData} from "../util/curseforge.js"
-import { fetchMods } from "../util/curseforge.js";
+import { fetchMods, type Submission } from "../util/curseforge.js";
 import { SUBMISSIONS } from "../config.js";
 import ModCard from "./ModCard.astro";
 
@@ -11,23 +10,21 @@ export interface Props {
 const { year, ...props } = Astro.props as Props;
 
 const submissionIds = SUBMISSIONS.get(year) ?? [];
-const submissions: ProjectData[] = await fetchMods(submissionIds)
+const submissions: Submission[] = await fetchMods(submissionIds)
 submissions.sort((a, b) => new Date(b.created_at).valueOf() - new Date(a.created_at).valueOf());
 const allAuthors = new Set();
-submissions.forEach((project) => project.members.forEach((author) => allAuthors.add(author.username)));
-const sum = submissions.reduce((downloads, project) => downloads + project.downloads.total, 0);
+submissions.forEach((project) => project.members.forEach((author) => allAuthors.add(author)));
+const sum = submissions.reduce((downloads, project) => downloads + project.downloads, 0);
 ---
 
 <p>
-	In {year} we have received {submissions.length} submissions from {
-		allAuthors.size
-	} different authors! These projects have been cumulatively downloaded {
-		sum.toLocaleString("en-US")
-	} times! Check out all the awesome submissions below!
+	In {year} we have received <strong>{submissions.length}</strong> submissions from <strong>{allAuthors.size}</strong>
+	different authors! These projects have been cumulatively downloaded
+	<strong>{sum.toLocaleString("en-US")}</strong> times! Check out all the awesome submissions below!
 </p>
 
 <div class="mb-6 sm:mb-12 p-2 w-full">
-	<div class="grid grid-cols-1 lg:grid-cols-2 gap-y-5 sm:gap-x-6 mt-6">
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-y-5 sm:gap-x-4 mt-6">
 		{submissions.map((project) => <ModCard project={project} />)}
 	</div>
 </div>

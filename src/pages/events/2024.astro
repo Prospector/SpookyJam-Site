@@ -1,0 +1,202 @@
+---
+import Layout from "../../layouts/main.astro";
+import InfoBox from "../../components/InfoBox.astro";
+import SubmissionBox from "../../components/SubmissionBox.astro";
+import Sponsor from "../../components/Sponsor.astro";
+import {DISCORD} from "../../config";
+import Timer from "../../components/Timer.astro";
+import ArchiveNotice from "../../components/ArchiveNotice.astro";
+
+const MULTILOADER = "https://github.com/jaredlll08/MultiLoader-Template"
+---
+
+<Layout title="SpookyJam 2024" description="Celebrate the fall season with the modded Minecraft community! SpookyJam 2024 will be taking place October 1st to October 31st!">
+
+    <p>
+        As the air grows crisp and the nights grow long, SpookyJam has returned! This october, we summon the bravest
+        modders to embrace their creative spirit and join us for the eighth annual SpookyJam!
+    </p>
+    <p>
+        SpookyJam is an annual mod jam held in celebration of the fall season. During SpookyJam we encourage you to
+        create new Java mods and Bedrock Add-Ons that capture the essence of the season. Participants are encouraged to
+        challenge themselves, learn new skills, and collaborate to create awesome things! A modpack and server
+        showcasing this years submissions will also be released closer to the end of the event.
+    </p>
+    <p>
+        SpookyJam is open to modders of all skill levels. If you've never made a mod before, now may be the perfect time
+        to learn how! Many teams are looking for help with ideas, textures, sounds, and localization! Join our
+        <a href={DISCORD} target="_blank">Discord</a> for more info.
+    </p>
+
+    <Timer date={Date.UTC(2024, 9, 1, 0, 0, 0) - (12 * 60 * 60 * 1000)}>
+        <p>
+            SpookyJam 2024 has officially started! You may now start working on your submissions. You will have until
+            the end of October to submit your entry. We recommend submitting your entry as soon as possible so players
+            can have time to enjoy your mods.
+        </p>
+    </Timer>
+
+    <h2 id="rules">Rules</h2>
+
+    <p>
+        The following rules have been put in place to ensure a safe and fair experience for all participants. Breaking
+        these rules may result in your submission being disqualified. If you have any questions about the rules please
+        reach out on our <a href={DISCORD} target="_blank">Discord</a>.
+    </p>
+
+    <ol>
+        <li>
+            You must submit a working Minecraft Java mod or Bedrock Add-On. There are no version or loader requirements,
+            however the server and modpack will use Java Edition 1.21.1 with the NeoForge mod loader.
+        </li>
+
+        <li>
+            Submissions must only be developed during the event period. This year the event starts on October 1st and
+            ends on November 1st. Coming up with ideas in advance is fine.
+        </li>
+
+        <li>
+            Submissions must fit within the broad themes of SpookyJam in some way. Our themes include anything that is
+            spooky, dark, or mysterious. Anything that fits with the fall/autumn season is also allowed.
+        </li>
+
+        <li>
+            Third party dependencies may be used within reason. You may also use 3rd party assets provided that they are
+            public domain or licensed under CC0.
+        </li>
+
+        <li>
+            Teams are allowed, and are encouraged! There are no team size limits but we recommend a maximum of four.
+            Teams will be responsible for deciding how any prizes won by their submission will be split.
+        </li>
+
+        <li>
+            Submissions must not contain malicious code or act in bad faith. We expect everyone to be professional and
+            try not to ruin the event for anyone else. Intentionally crashing the game, making the game unplayable, or
+            maliciously tampering with other submissions will not be accepted.
+        </li>
+
+        <li>
+            Submissions must be uploaded to CurseForge before the submission deadline. They must also pass through
+            CurseForge's standard review process. We highly encourage uploading your project as soon as possible to
+            ensure your project is reviewed in time.
+        </li>
+
+        <li>
+            Be respectful to other participants, event sponsors, and event organizers.
+        </li>
+    </ol>
+
+    <h2 id="prizes">Prizes & Rewards</h2>
+
+    <p>
+        Full prize details will be announced closer to the start of the event. In the past we have partnered with
+        CurseForge to send out limited edition CursedForge shirts and sweatshirts to all participants of the event.
+        Prizes are limited to one per person.
+    </p>
+
+    <h2 id="modpack-server">Modpack & Server</h2>
+    <p>
+        Each year we put together a modpack that showcases participating mods. We also host a public server for players
+        to explore these mods together! More information will be revealed on the 16th of October.
+    </p>
+
+    <p>
+        Please keep in mind that our server and modpack will be using Minecraft <strong>1.21.1</strong> and the
+        <strong>NeoForge</strong> mod loader. Any submissions that are not compatible with this environment will be
+        excluded from the pack and server, but will still be eligible for the broader event.
+    </p>
+
+    <h2 id="entries">Entries</h2>
+    <p>
+        Submissions will open once the event has officially started!
+    </p>
+
+    <h2 id="faq">FaQ</h2>
+
+    <InfoBox title="Can I submit multiple entries?">
+        Yes you may submit as many entries as you would like however we will not be accepting spam entries. If you do
+        choose to work on multiple entries please take steps to avoid stress and burnout.
+    </InfoBox>
+
+    <InfoBox title="Can I join multiple teams?">
+        Yes you may join as many teams as you would like. We strongly recommend being transparent with your team mates
+        if you choose to do this.
+    </InfoBox>
+
+    <InfoBox title="Can I support multiple mod loaders?">
+        Yes you may support as many loaders as you want. Please keep in mind that supporting Minecraft 1.21.1 and the
+        NeoForge mod loader is highly encouraged as this is what our mod pack and server will be using. If you are still
+        interested in supporting multiple platforms we recommend checking out the
+        <a href={MULTILOADER} target="_blank">MultiLoader Template</a>.
+    </InfoBox>
+
+    <InfoBox title="Will there be a Forge/Fabric or Bedrock pack/server?">
+        We are only planning to host a pack and server for NeoForge 1.21.1 at this time. If there is enough
+        participation on a different platform we may consider creating more packs and servers as needed.
+    </InfoBox>
+
+    <InfoBox title="Can I use a tool like MCreator?">
+        Yes, using tools like MCreator are allowed. Please keep in mind that you are still responsible for any bugs in
+        your code, even if that code was generated using a program like MCreator.
+    </InfoBox>
+
+    <InfoBox title="Can I submit a data pack or resource pack?">
+        Yes, we will accept these types of packs however your pack must be converted to a Java mod or a Bedrock Add-On
+        and uploaded to CurseForge in that format.
+    </InfoBox>
+
+    <InfoBox title="Can I submit a mod from a previous year?">
+        Submissions from previous SpookyJam events may be resubmitted to be included in our mod pack and server. These
+        submissions will not be eligible for prizes and will not receive the same level of promotion as new submissions.
+    </InfoBox>
+
+    <InfoBox title="Is publishing to CurseForge required to participate?">
+        Yes all submission must be published to CurseForge. This requirement allows us to streamline the process of
+        building and publishing the mod pack. You may publish to any other platforms in addition to CurseForge.
+    </InfoBox>
+
+    <InfoBox title="Can I submit a mod I did not create?">
+        No. Only the original author may submit their mod.
+    </InfoBox>
+
+    <InfoBox title="How should teams submit their projects?">
+        Teams should select one team member to represent and submit their project. Submitting the same project multiple
+        times is not needed and will only create more work for our team.
+    </InfoBox>
+
+    <InfoBox title="Do I need to submit my project?">
+        Yes you must submit your project within the submission window of the event. We can not find or track your
+        submission without this.
+    </InfoBox>
+
+    <InfoBox title="Can I submit my entry to multiple events?">
+        Yes, you can submit your entry to multiple events, provided that all of the relevant rules have been followed.
+        There are usually a few unaffiliated events that overlap with SpookyJam every year and we encourage you to try
+        out all of them.
+    </InfoBox>
+
+    <InfoBox title="Can I submit an entry that was not intentionally created for SpookyJam?">
+        Yes, provided your entry meets all of our rules and fits with the SpookyJam theme you can still submit it as an
+        entry to our event.
+    </InfoBox>
+
+    <div id="sponsors">
+        <h2>Sponsors</h2>
+
+        <div class="grid sm:grid-cols-3 gap-y-5 sm:gap-x-6 mt-6 p-4 text-lg">
+            <Sponsor
+                    name="CurseForge"
+                    logo="/events/sponsor_curseforge.png"
+                    link="https://www.curseforge.com"
+                    description="CurseForge provides hosting for mods, addons, and user content for many popular games such as Minecraft, World of Warcraft, and Among Us."
+            />
+            <Sponsor
+                    name="Nodecraft"
+                    logo="/events/sponsor_nodecraft.png"
+                    link="https://nodecraft.com"
+                    description="Nodecraft offers quality server hosting for many games such as Minecraft, Rust, and Factorio."
+            />
+        </div>
+    </div>
+</Layout>
