@@ -25,7 +25,7 @@ This API is statically generated and statistics like download counts will only u
 | downloads  | number   | The amount of downloads the project has received on CurseForge. |
 | members    | string[] | Usernames of the authors on CurseForge.                         |
 
-#### Stats
+#### StatsJson
 | Property     | Type   | Description                                     |
 |--------------|--------|-------------------------------------------------|
 | submissions  | number | The number of unique submissions received.      |
@@ -34,12 +34,12 @@ This API is statically generated and statistics like download counts will only u
 
 ### Endpoints
 
-#### `/v1/submissions`
+#### `/v1/submissions.json`
 Returns a map of submissions received each year. The key is the name of the year and the value is an array of submission
 objects.
 
-#### `/v1/submissions/[year]`
+#### `/v1/submissions/[year].json`
 Returns an array of submissions that were received for the specified year.
 
-#### `/v1/stats`
-Returns a map of stats for each year. The key is the name of the year and the value is a Stats object.
+#### `/v1/stats.json`
+Returns a map of stats for each year. The key is the name of the year and the value is a StatsJson object.

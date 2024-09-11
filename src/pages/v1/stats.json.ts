@@ -3,7 +3,7 @@ import {fetchMods, type Submission} from "../../util/curseforge.js";
 import {SUBMISSIONS} from "../../config.js";
 
 export async function GET(context: APIContext) {
-    const projectData: Map<String, Stats> = new Map()
+    const projectData: Map<String, StatsJson> = new Map()
     for (const year of SUBMISSIONS.keys()) {
         const submissions: Submission[] = await fetchMods(SUBMISSIONS.get(year) ?? []);
         const allAuthors = new Set();
@@ -18,7 +18,7 @@ export async function GET(context: APIContext) {
     return Response.json(Object.fromEntries(projectData))
 }
 
-export interface Stats {
+export interface StatsJson {
     submissions: number
     participants: number
     downloads: number
