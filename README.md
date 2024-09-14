@@ -14,16 +14,17 @@ This API is statically generated and statistics like download counts will only u
 ### Data Types
 
 #### Submission
-| Property   | Type     | Description                                                     |
-|------------|----------|-----------------------------------------------------------------|
-| id         | number   | A unique ID for the project on CurseForge.                      |
-| title      | string   | The display name of the project.                                |
-| summary    | string   | A short description of the project.                             |
-| url        | string   | A URL that points to the project on CurseForge.                 |
-| logo       | string   | A URL that points to the project logo on CurseForge.            |
-| created_at | string   | A timestamp of when the CurseForge project was created.         |
-| downloads  | number   | The amount of downloads the project has received on CurseForge. |
-| members    | string[] | Usernames of the authors on CurseForge.                         |
+| Property   | Type     | Description                                                              |
+|------------|----------|--------------------------------------------------------------------------|
+| id         | number   | A unique ID for the project on CurseForge.                               |
+| title      | string   | The display name of the project.                                         |
+| summary    | string   | A short description of the project.                                      |
+| url        | string   | A URL that points to the project on CurseForge.                          |
+| logo       | string   | A URL that points to the project logo on CurseForge.                     |
+| created_at | string   | A timestamp of when the CurseForge project was created.                  |
+| downloads  | number   | The amount of downloads the project has received on CurseForge.          |
+| members    | string[] | Usernames of the authors on CurseForge.                                  |
+| loaders    | string[] | A list of supported mod loaders. Old projects may not have defined this. |
 
 #### StatsJson
 | Property     | Type   | Description                                     |

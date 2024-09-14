@@ -62,7 +62,18 @@ async function fetchRecursive(projectId: number): Promise<Submission> {
         })
 }
 
+const validLoaderTags = ['Fabric', 'Forge', 'NeoForge', 'Quilt']
 function fromProject(project: ProjectData): Submission {
+    const loaderTags: Set<string> = new Set()
+    project.files.forEach(file => {
+        validLoaderTags.forEach(tag => {
+            if (file.versions.includes(tag)) {
+                loaderTags.add(tag)
+            }
+        })
+    })
+    console.log(loaderTags.size)
+
     return {
         id: project.id,
         title: nameOverrides.get(project.id) ?? project.title,
@@ -71,7 +82,8 @@ function fromProject(project: ProjectData): Submission {
         logo: project.thumbnail,
         created_at: project.created_at,
         downloads: project.downloads.total,
-        members: project.members.map(m => m.username)
+        members: project.members.map(m => m.username),
+        loaders: Array.from(loaderTags)
     }
 }
 
@@ -84,6 +96,7 @@ export interface Submission {
     created_at: string
     downloads: number
     members: string[]
+    loaders: string[]
 }
 
 export interface ProjectData {
