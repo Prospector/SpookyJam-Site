@@ -8,6 +8,8 @@ import Timer from "../../components/Timer.astro";
 import ArchiveNotice from "../../components/ArchiveNotice.astro";
 
 const MULTILOADER = "https://github.com/jaredlll08/MultiLoader-Template"
+const F_PARTICIPANT = "https://forms.gle/iPoQdvpjLDTwYXnk9"
+const F_SUBMISSION = "https://forms.gle/qVHmC3gp4bFmmZMT6"
 ---
 
 <Layout title="SpookyJam 2024" description="Celebrate the fall season with the modded Minecraft community! SpookyJam 2024 will be taking place October 1st to October 31st!">
@@ -27,14 +29,6 @@ const MULTILOADER = "https://github.com/jaredlll08/MultiLoader-Template"
         to learn how! Many teams are looking for help with ideas, textures, sounds, and localization! Join our
         <a href={DISCORD} target="_blank">Discord</a> for more info.
     </p>
-
-    <Timer date={Date.UTC(2024, 9, 1, 0, 0, 0) - (12 * 60 * 60 * 1000)}>
-        <p>
-            SpookyJam 2024 has officially started! You may now start working on your submissions. You will have until
-            the end of October to submit your entry. We recommend submitting your entry as soon as possible so players
-            can have time to enjoy your mods.
-        </p>
-    </Timer>
 
     <h2 id="rules">Rules</h2>
 
@@ -90,15 +84,16 @@ const MULTILOADER = "https://github.com/jaredlll08/MultiLoader-Template"
     <h2 id="prizes">Prizes & Rewards</h2>
 
     <p>
-        Full prize details will be announced closer to the start of the event. In the past we have partnered with
-        CurseForge to send out limited edition CursedForge shirts and sweatshirts to all participants of the event.
-        Prizes are limited to one per person.
+        This year we are partnering with CurseForge to provide a limited edition CurseForge shirt and a CurseForge patch
+        to all participants! We will also be providing participants with the SpookyJam 2024 role on our
+        <a href={DISCORD} target="_blank">Discord</a> server. Participants can claim their rewards using
+        <a href={F_PARTICIPANT} target="_blank">this form</a>.
     </p>
 
     <h2 id="modpack-server">Modpack & Server</h2>
     <p>
         Each year we put together a modpack that showcases participating mods. We also host a public server for players
-        to explore these mods together! More information will be revealed on the 16th of October.
+        to explore these mods together! More information will be revealed closer to the end of the event.
     </p>
 
     <p>
@@ -109,7 +104,12 @@ const MULTILOADER = "https://github.com/jaredlll08/MultiLoader-Template"
 
     <h2 id="entries">Entries</h2>
     <p>
-        Submissions will open once the event has officially started!
+        The submission window is open! Please submit your entry using
+        <a href={F_SUBMISSION} target="_blank">this form</a> before the end of October 31st! Make sure you also submit
+        <a href={F_PARTICIPANT} target="_blank">this form</a> to claim your participation rewards!
+    </p>
+    <p>
+        Entries will appear here once they have been received and verified.
     </p>
 
     <h2 id="faq">FaQ</h2>
