@@ -9,7 +9,9 @@ export const SUBMISSIONS = new Map<string, number[]>([
         1113476,
         1116473,
         1117740,
-        1123173
+        1123173,
+        1122497,
+        1124163
     ]
     ],
     [
