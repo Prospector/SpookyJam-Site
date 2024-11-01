@@ -13,7 +13,7 @@ const { name, link, description, logo, ...props } = Astro.props as Props;
 <div class='gap-x-4 p-8 border-2 border-yellow-700 bg-yellow-900 bg-opacity-25'>
 
     <a href={link} target="_blank">
-        <img src={logo} class="w-48 h-48 m-auto glowyimg" width="192px" height="192px" alt={name}/>
+        <img src={logo} class="w-48 h-48 m-auto glowyimg aspect-square" width="192px" height="192px" alt={name}/>
     </a>
 
     <div class="text-center">
