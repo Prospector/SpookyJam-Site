@@ -2,12 +2,12 @@
 const {title, body} = Astro.props;
 ---
 
-<details class = 'mr-16 my-4 border-2 border-yellow-700 bg-yellow-900 bg-opacity-25 divide-y divide-yellow-800 divide-double cursor-pointer' >
-    <summary class = 'pl-2 py-2 text-xl sm:text-lg lg:text-xl font-medium'>
+<details class = 'my-4 mx-2 border-2 border-yellow-700 bg-yellow-900 bg-opacity-25 divide-y divide-yellow-800 divide-double cursor-pointer' >
+    <summary class = 'p-2 text-xl sm:text-lg lg:text-xl font-medium'>
         {title}
     </summary>
 
-    <div class = 'pl-4 py-1 text-base'>
+    <div class = 'px-4 py-2 text-base'>
         <slot/>
     </div>
 </details>
